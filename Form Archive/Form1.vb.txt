@@ -1,0 +1,29 @@
+﻿
+
+
+
+Public Class Form1
+
+
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim ioMgr As Ivi.Visa.Interop.ResourceManager
+        ioMgr = New Ivi.Visa.Interop.ResourceManager
+
+        Dim instrument As Ivi.Visa.Interop.FormattedIO488
+        instrument = New Ivi.Visa.Interop.FormattedIO488
+
+
+
+        instrument.IO = ioMgr.Open("TCPIP0::169.254.58.10::gpib10,1::INSTR")    ' 10 is the instr. address 
+        instrument.WriteString("DISP:TEXT """ & DMM_Name_1.Text&"""")
+
+        '   idn = instrument.ReadString()
+        '    MsgBox "The IDN String is: " & idn, vbOKOnly, "IDN Result"
+
+    End Sub
+End Class

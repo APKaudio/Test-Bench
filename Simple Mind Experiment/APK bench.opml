@@ -1,0 +1,1392 @@
+﻿<?xml version="1.0"?>
+<opml version="1.0">
+	<head>
+		<title>
+APK bench
+		</title>
+	</head>
+	<body>
+		<outline text="RED Network">
+			<outline text="BENCH">
+				<outline text="GPIB">
+					<outline text="DC">
+						<outline text="Supply">
+							<outline text="0"/>
+							<outline text="1"/>
+							<outline text="2"/>
+							<outline text="3"/>
+							<outline text="4"/>
+							<outline text="5"/>
+							<outline text="6"/>
+							<outline text="7"/>
+						</outline>
+						<outline text="LOAD"/>
+					</outline>
+					<outline text="INPUT">
+						<outline text="SIGNAL GEN"/>
+					</outline>
+					<outline text="OUTPUT">
+						<outline text="Distortion"/>
+						<outline text="Spectrum Analyzer"/>
+						<outline text="DMM">
+							<outline text="DMM">
+								<outline text="DMM 1"/>
+								<outline text="DMM 2"/>
+								<outline text="DMM 3"/>
+							</outline>
+						</outline>
+						<outline text="SCOPE"/>
+					</outline>
+				</outline>
+			</outline>
+		</outline>
+		<outline text="@muxer">
+			<outline text="@Coax">
+				<outline text="@Card">
+					<outline text="000">
+						<outline text="@Name ">
+							<outline text="Left"/>
+						</outline>
+						<outline text="@Bank">
+							<outline text="0">
+								<outline text="@RELAY">
+									<outline text="1">
+										<outline text="@Direction">
+											<outline text="SEND"/>
+											<outline text="@Name">
+												<outline text="Signal Generator"/>
+												<outline text="@Purpose">
+													<outline text="Time and Freq Analysis"/>
+													<outline text="@Manufacturer">
+														<outline text="Hewlet Packard"/>
+														<outline text="@Model">
+															<outline text="HP 353A"/>
+															<outline text="@Location">
+																<outline text="Shop"/>
+																<outline text="@Connection">
+																	<outline text="TCPIP0::44.44.44.111::7,6::INSTR">
+																		<outline text="&apos;I think this can be multiple tcip"/>
+																	</outline>
+																	<outline text="@Colour">
+																		<outline text="Brown"/>
+																	</outline>
+																</outline>
+															</outline>
+														</outline>
+													</outline>
+												</outline>
+											</outline>
+										</outline>
+									</outline>
+									<outline text="2">
+										<outline text="@Name">
+											<outline text="Distortion Analyzer Signal Generator"/>
+										</outline>
+										<outline text="@Direction">
+											<outline text="SEND"/>
+										</outline>
+										<outline text="@Manufacturer">
+											<outline text="Hewlet Packard"/>
+											<outline text="@Model">
+												<outline text="HP 353A"/>
+											</outline>
+										</outline>
+										<outline text="@Colour">
+											<outline text="Red"/>
+										</outline>
+									</outline>
+									<outline text="3">
+										<outline text="@Name">
+											<outline text="Patch Panel"/>
+											<outline text="Transformer"/>
+										</outline>
+										<outline text="@Direction">
+											<outline text="SEND"/>
+										</outline>
+										<outline text="@Manufacturer">
+											<outline text="Hewlet Packard"/>
+											<outline text="@Model">
+												<outline text="HP 353A"/>
+											</outline>
+										</outline>
+										<outline text="@Colour">
+											<outline text="Red"/>
+										</outline>
+									</outline>
+									<outline text="4">
+										<outline text="@Name">
+											<outline text="Patch Panel"/>
+											<outline text="Transformer"/>
+										</outline>
+										<outline text="@Direction">
+											<outline text="RETURN"/>
+											<outline text="@Manufacturer">
+												<outline text="Hewlet Packard"/>
+												<outline text="@Model"/>
+											</outline>
+										</outline>
+										<outline text="@Manufacturer">
+											<outline text="Hewlet Packard"/>
+											<outline text="@Model">
+												<outline text="HP 353A"/>
+											</outline>
+										</outline>
+									</outline>
+									<outline text="5">
+										<outline text="@Direction">
+											<outline text="RETURN"/>
+										</outline>
+										<outline text="@Name">
+											<outline text="Transformer"/>
+										</outline>
+									</outline>
+									<outline text="6"/>
+									<outline text="7">
+										<outline text="@Name">
+											<outline text="VINTAGE MULTI METER"/>
+										</outline>
+										<outline text="@Direction">
+											<outline text="RETURN"/>
+										</outline>
+									</outline>
+									<outline text="8"/>
+									<outline text="@Name">
+										<outline text="X"/>
+									</outline>
+								</outline>
+							</outline>
+						</outline>
+						<outline text="@Busses">
+							<outline text="10">
+								<outline text="@Name">
+									<outline text="SCOPE"/>
+								</outline>
+								<outline text="@Direction">
+									<outline text="Send"/>
+								</outline>
+								<outline text="@Channel">
+									<outline text="1"/>
+								</outline>
+							</outline>
+							<outline text="20">
+								<outline text="@Name">
+									<outline text="SCOPE"/>
+								</outline>
+								<outline text="@Direction">
+									<outline text="Send"/>
+								</outline>
+								<outline text="@Channel">
+									<outline text="2"/>
+								</outline>
+							</outline>
+							<outline text="30">
+								<outline text="@Name">
+									<outline text="Spectrum Analyzer"/>
+								</outline>
+								<outline text="@Direction">
+									<outline text="Send"/>
+								</outline>
+							</outline>
+							<outline text="40">
+								<outline text="@Name">
+									<outline text="Distortion Analyzer"/>
+								</outline>
+								<outline text="@Direction">
+									<outline text="Send"/>
+								</outline>
+							</outline>
+						</outline>
+					</outline>
+					<outline text="100">
+						<outline text="@Bank">
+							<outline text="0"/>
+							<outline text="1">
+								<outline text="@Name">
+									<outline text="SCOPE"/>
+								</outline>
+								<outline text="@Direction">
+									<outline text="Return"/>
+								</outline>
+								<outline text="@Channel">
+									<outline text="1"/>
+								</outline>
+							</outline>
+							<outline text="2">
+								<outline text="@Name">
+									<outline text="SCOPE"/>
+								</outline>
+								<outline text="@Direction">
+									<outline text="Return"/>
+								</outline>
+								<outline text="@Channel">
+									<outline text="2"/>
+								</outline>
+							</outline>
+							<outline text="3">
+								<outline text="@Name">
+									<outline text="Spectrum Analyzer"/>
+								</outline>
+								<outline text="@Direction">
+									<outline text="Return"/>
+								</outline>
+							</outline>
+							<outline text="4">
+								<outline text="@Name">
+									<outline text="Distortion Analyzer"/>
+								</outline>
+								<outline text="@Direction">
+									<outline text="Return"/>
+								</outline>
+							</outline>
+						</outline>
+						<outline text="@Name ">
+							<outline text="Left"/>
+						</outline>
+					</outline>
+				</outline>
+			</outline>
+			<outline text="@Balanced">
+				<outline text="@CARD">
+					<outline text="600">
+						<outline text="@Name">
+							<outline text="Edac 90 Snake"/>
+						</outline>
+						<outline text="@Bank">
+							<outline text="0">
+								<outline text="@relay">
+									<outline text="1">
+										<outline text="@Channel">
+											<outline text="1"/>
+										</outline>
+									</outline>
+									<outline text="2">
+										<outline text="@Channel">
+											<outline text="3"/>
+										</outline>
+									</outline>
+									<outline text="3">
+										<outline text="@Channel">
+											<outline text="5"/>
+										</outline>
+									</outline>
+									<outline text="4">
+										<outline text="@Channel">
+											<outline text="7"/>
+										</outline>
+									</outline>
+									<outline text="5">
+										<outline text="@Channel">
+											<outline text="9"/>
+										</outline>
+									</outline>
+									<outline text="6">
+										<outline text="@Channel">
+											<outline text="11"/>
+										</outline>
+									</outline>
+									<outline text="@Name">
+										<outline text="WBS Console Line IN"/>
+									</outline>
+								</outline>
+								<outline text="@Direction">
+									<outline text="Send"/>
+								</outline>
+								<outline text="@Pan">
+									<outline text="Left"/>
+								</outline>
+								<outline text="@name">
+									<outline text="LEFT OUT"/>
+								</outline>
+								<outline text="@BUSSES">
+									<outline text="90">
+										<outline text="@Direction">
+											<outline text="SUM"/>
+										</outline>
+										<outline text="@Name">
+											<outline text="LEFT DUT"/>
+										</outline>
+										<outline text="@id">
+											<outline text="AB0"/>
+										</outline>
+									</outline>
+								</outline>
+								<outline text="@BYPASSES">
+									<outline text="70">
+										<outline text="@Name">
+											<outline text="Left IN to OUT"/>
+										</outline>
+										<outline text="@Pan">
+											<outline text="LEFT"/>
+										</outline>
+									</outline>
+								</outline>
+							</outline>
+							<outline text="1">
+								<outline text="@relay">
+									<outline text="1">
+										<outline text="@Channel">
+											<outline text="13"/>
+										</outline>
+									</outline>
+									<outline text="2">
+										<outline text="@Channel">
+											<outline text="15"/>
+										</outline>
+									</outline>
+									<outline text="3">
+										<outline text="@Channel">
+											<outline text="17"/>
+										</outline>
+									</outline>
+									<outline text="4">
+										<outline text="@Channel">
+											<outline text="19"/>
+										</outline>
+									</outline>
+									<outline text="5">
+										<outline text="@Channel">
+											<outline text="21"/>
+										</outline>
+									</outline>
+									<outline text="6">
+										<outline text="@Channel">
+											<outline text="23"/>
+										</outline>
+									</outline>
+									<outline text="@Name">
+										<outline text="WBS Console Line OUT"/>
+									</outline>
+								</outline>
+								<outline text="@Direction">
+									<outline text="Return"/>
+								</outline>
+								<outline text="@Pan">
+									<outline text="Left"/>
+								</outline>
+								<outline text="@name">
+									<outline text="LEFT OUT"/>
+								</outline>
+								<outline text="@BUSSES">
+									<outline text="91">
+										<outline text="@Direction">
+											<outline text="RESULT"/>
+										</outline>
+										<outline text="@Name">
+											<outline text="LEFT DUT"/>
+										</outline>
+										<outline text="@id">
+											<outline text="AB1"/>
+										</outline>
+									</outline>
+								</outline>
+								<outline text="@BYPASSES">
+									<outline text="70">
+										<outline text="@Name">
+											<outline text="Left IN to OUT"/>
+										</outline>
+										<outline text="@Pan">
+											<outline text="LEFT"/>
+										</outline>
+									</outline>
+									<outline text="71">
+										<outline text="@Name">
+											<outline text="Mono"/>
+										</outline>
+									</outline>
+								</outline>
+							</outline>
+							<outline text="2">
+								<outline text="@relay">
+									<outline text="1">
+										<outline text="@Channel">
+											<outline text="2"/>
+										</outline>
+									</outline>
+									<outline text="2">
+										<outline text="@Channel">
+											<outline text="4"/>
+										</outline>
+									</outline>
+									<outline text="3">
+										<outline text="@Channel">
+											<outline text="6"/>
+										</outline>
+									</outline>
+									<outline text="4">
+										<outline text="@Channel">
+											<outline text="8"/>
+										</outline>
+									</outline>
+									<outline text="5">
+										<outline text="@Channel">
+											<outline text="10"/>
+										</outline>
+									</outline>
+									<outline text="6">
+										<outline text="@Channel">
+											<outline text="12"/>
+										</outline>
+									</outline>
+									<outline text="@Name">
+										<outline text="WBS Console Line IN"/>
+									</outline>
+								</outline>
+								<outline text="@Direction">
+									<outline text="SEND"/>
+								</outline>
+								<outline text="@Pan">
+									<outline text="RIGHT"/>
+								</outline>
+								<outline text="@name">
+									<outline text="RIGHT OUT"/>
+								</outline>
+								<outline text="@BUSSES">
+									<outline text="92">
+										<outline text="@Name">
+											<outline text="RIGHT  DUT"/>
+										</outline>
+										<outline text="@Direction">
+											<outline text="ACCEPT"/>
+										</outline>
+										<outline text="@id">
+											<outline text="AB2"/>
+										</outline>
+									</outline>
+								</outline>
+								<outline text="@BYPASSES">
+									<outline text="71">
+										<outline text="@Name">
+											<outline text="Mono"/>
+										</outline>
+									</outline>
+									<outline text="72">
+										<outline text="@Name">
+											<outline text="Right  IN to OUT"/>
+										</outline>
+										<outline text="@Pan">
+											<outline text="RIGHT"/>
+										</outline>
+									</outline>
+								</outline>
+							</outline>
+							<outline text="3">
+								<outline text="@relay">
+									<outline text="1">
+										<outline text="@Channel">
+											<outline text="14"/>
+										</outline>
+									</outline>
+									<outline text="2">
+										<outline text="@Channel">
+											<outline text="16"/>
+										</outline>
+									</outline>
+									<outline text="3">
+										<outline text="@Channel">
+											<outline text="18"/>
+										</outline>
+									</outline>
+									<outline text="4">
+										<outline text="@Channel">
+											<outline text="20"/>
+										</outline>
+									</outline>
+									<outline text="5">
+										<outline text="@Channel">
+											<outline text="22"/>
+										</outline>
+									</outline>
+									<outline text="6">
+										<outline text="@Channel">
+											<outline text="24"/>
+										</outline>
+									</outline>
+									<outline text="@Name">
+										<outline text="WBS Console Line OUT"/>
+									</outline>
+								</outline>
+								<outline text="@Direction">
+									<outline text="RETURN"/>
+								</outline>
+								<outline text="@Pan">
+									<outline text="RIGHT"/>
+								</outline>
+								<outline text="@name">
+									<outline text="RIGHT OUT"/>
+								</outline>
+								<outline text="@BUSSES">
+									<outline text="93">
+										<outline text="@Name">
+											<outline text="RIGHT  DUT "/>
+										</outline>
+										<outline text="@Direction">
+											<outline text="RETURN"/>
+										</outline>
+										<outline text="@id">
+											<outline text="AB3"/>
+										</outline>
+									</outline>
+								</outline>
+								<outline text="@BYPASSES">
+									<outline text="72">
+										<outline text="@Name">
+											<outline text="Right  IN to OUT"/>
+										</outline>
+										<outline text="@Pan">
+											<outline text="RIGHT"/>
+										</outline>
+									</outline>
+								</outline>
+							</outline>
+						</outline>
+					</outline>
+					<outline text="700">
+						<outline text="@Name">
+							<outline text="Edac 90 Snake"/>
+						</outline>
+						<outline text="@Bank">
+							<outline text="0">
+								<outline text="@relay">
+									<outline text="1">
+										<outline text="@Channel">
+											<outline text="1"/>
+										</outline>
+									</outline>
+									<outline text="2">
+										<outline text="@Channel">
+											<outline text="3"/>
+										</outline>
+									</outline>
+									<outline text="3">
+										<outline text="@Channel">
+											<outline text="5"/>
+										</outline>
+									</outline>
+									<outline text="4">
+										<outline text="@Channel">
+											<outline text="7"/>
+										</outline>
+									</outline>
+									<outline text="5">
+										<outline text="@Channel">
+											<outline text="9"/>
+										</outline>
+									</outline>
+									<outline text="6">
+										<outline text="@Channel">
+											<outline text="11"/>
+										</outline>
+									</outline>
+									<outline text="@Name">
+										<outline text="WBS Console Line IN"/>
+									</outline>
+								</outline>
+								<outline text="@Direction">
+									<outline text="Send"/>
+								</outline>
+								<outline text="@Pan">
+									<outline text="Left"/>
+								</outline>
+								<outline text="@name">
+									<outline text="LEFT OUT"/>
+								</outline>
+								<outline text="@BUSSES">
+									<outline text="90">
+										<outline text="@Direction">
+											<outline text="SUM"/>
+										</outline>
+										<outline text="@Name">
+											<outline text="LEFT DUT"/>
+										</outline>
+										<outline text="@id">
+											<outline text="AB0"/>
+										</outline>
+									</outline>
+								</outline>
+								<outline text="@BYPASSES">
+									<outline text="70">
+										<outline text="@Name">
+											<outline text="Left IN to OUT"/>
+										</outline>
+										<outline text="@Pan">
+											<outline text="LEFT"/>
+										</outline>
+									</outline>
+								</outline>
+							</outline>
+							<outline text="1">
+								<outline text="@relay">
+									<outline text="1">
+										<outline text="@Channel">
+											<outline text="13"/>
+										</outline>
+									</outline>
+									<outline text="2">
+										<outline text="@Channel">
+											<outline text="15"/>
+										</outline>
+									</outline>
+									<outline text="3">
+										<outline text="@Channel">
+											<outline text="17"/>
+										</outline>
+									</outline>
+									<outline text="4">
+										<outline text="@Channel">
+											<outline text="19"/>
+										</outline>
+									</outline>
+									<outline text="5">
+										<outline text="@Channel">
+											<outline text="21"/>
+										</outline>
+									</outline>
+									<outline text="6">
+										<outline text="@Channel">
+											<outline text="23"/>
+										</outline>
+									</outline>
+									<outline text="@Name">
+										<outline text="WBS Console Line OUT"/>
+									</outline>
+								</outline>
+								<outline text="@Direction">
+									<outline text="Return"/>
+								</outline>
+								<outline text="@Pan">
+									<outline text="Left"/>
+								</outline>
+								<outline text="@name">
+									<outline text="LEFT OUT"/>
+								</outline>
+								<outline text="@BUSSES">
+									<outline text="91">
+										<outline text="@Direction">
+											<outline text="RESULT"/>
+										</outline>
+										<outline text="@Name">
+											<outline text="LEFT DUT"/>
+										</outline>
+										<outline text="@id">
+											<outline text="AB1"/>
+										</outline>
+									</outline>
+								</outline>
+								<outline text="@BYPASSES">
+									<outline text="70">
+										<outline text="@Name">
+											<outline text="Left IN to OUT"/>
+										</outline>
+										<outline text="@Pan">
+											<outline text="LEFT"/>
+										</outline>
+									</outline>
+									<outline text="71">
+										<outline text="@Name">
+											<outline text="Mono"/>
+										</outline>
+									</outline>
+								</outline>
+							</outline>
+							<outline text="2">
+								<outline text="@relay">
+									<outline text="1">
+										<outline text="@Channel">
+											<outline text="2"/>
+										</outline>
+									</outline>
+									<outline text="2">
+										<outline text="@Channel">
+											<outline text="4"/>
+										</outline>
+									</outline>
+									<outline text="3">
+										<outline text="@Channel">
+											<outline text="6"/>
+										</outline>
+									</outline>
+									<outline text="4">
+										<outline text="@Channel">
+											<outline text="8"/>
+										</outline>
+									</outline>
+									<outline text="5">
+										<outline text="@Channel">
+											<outline text="10"/>
+										</outline>
+									</outline>
+									<outline text="6">
+										<outline text="@Channel">
+											<outline text="12"/>
+										</outline>
+									</outline>
+									<outline text="@Name">
+										<outline text="WBS Console Line IN"/>
+									</outline>
+								</outline>
+								<outline text="@Direction">
+									<outline text="SEND"/>
+								</outline>
+								<outline text="@Pan">
+									<outline text="RIGHT"/>
+								</outline>
+								<outline text="@name">
+									<outline text="RIGHT OUT"/>
+								</outline>
+								<outline text="@BUSSES">
+									<outline text="92">
+										<outline text="@Name">
+											<outline text="RIGHT  DUT"/>
+										</outline>
+										<outline text="@Direction">
+											<outline text="ACCEPT"/>
+										</outline>
+										<outline text="@id">
+											<outline text="AB2"/>
+										</outline>
+									</outline>
+								</outline>
+								<outline text="@BYPASSES">
+									<outline text="71">
+										<outline text="@Name">
+											<outline text="Mono"/>
+										</outline>
+									</outline>
+									<outline text="72">
+										<outline text="@Name">
+											<outline text="Right  IN to OUT"/>
+										</outline>
+										<outline text="@Pan">
+											<outline text="RIGHT"/>
+										</outline>
+									</outline>
+								</outline>
+							</outline>
+							<outline text="3">
+								<outline text="@relay">
+									<outline text="1">
+										<outline text="@Channel">
+											<outline text="14"/>
+										</outline>
+									</outline>
+									<outline text="2">
+										<outline text="@Channel">
+											<outline text="16"/>
+										</outline>
+									</outline>
+									<outline text="3">
+										<outline text="@Channel">
+											<outline text="18"/>
+										</outline>
+									</outline>
+									<outline text="4">
+										<outline text="@Channel">
+											<outline text="20"/>
+										</outline>
+									</outline>
+									<outline text="5">
+										<outline text="@Channel">
+											<outline text="22"/>
+										</outline>
+									</outline>
+									<outline text="6">
+										<outline text="@Channel">
+											<outline text="24"/>
+										</outline>
+									</outline>
+									<outline text="@Name">
+										<outline text="WBS Console Line OUT"/>
+									</outline>
+								</outline>
+								<outline text="@Direction">
+									<outline text="RETURN"/>
+								</outline>
+								<outline text="@Pan">
+									<outline text="RIGHT"/>
+								</outline>
+								<outline text="@name">
+									<outline text="RIGHT OUT"/>
+								</outline>
+								<outline text="@BUSSES">
+									<outline text="93">
+										<outline text="@Name">
+											<outline text="RIGHT  DUT "/>
+										</outline>
+										<outline text="@Direction">
+											<outline text="RETURN"/>
+										</outline>
+										<outline text="@id">
+											<outline text="AB3"/>
+										</outline>
+									</outline>
+								</outline>
+								<outline text="@BYPASSES">
+									<outline text="72">
+										<outline text="@Name">
+											<outline text="Right  IN to OUT"/>
+										</outline>
+										<outline text="@Pan">
+											<outline text="RIGHT"/>
+										</outline>
+									</outline>
+								</outline>
+							</outline>
+						</outline>
+					</outline>
+					<outline text="800">
+						<outline text="@Name">
+							<outline text="Edac 90 Snake"/>
+						</outline>
+						<outline text="@Bank">
+							<outline text="0">
+								<outline text="@relay">
+									<outline text="1">
+										<outline text="@Channel">
+											<outline text="1"/>
+										</outline>
+									</outline>
+									<outline text="2">
+										<outline text="@Channel">
+											<outline text="3"/>
+										</outline>
+									</outline>
+									<outline text="3">
+										<outline text="@Channel">
+											<outline text="5"/>
+										</outline>
+									</outline>
+									<outline text="4">
+										<outline text="@Channel">
+											<outline text="7"/>
+										</outline>
+									</outline>
+									<outline text="5">
+										<outline text="@Channel">
+											<outline text="9"/>
+										</outline>
+									</outline>
+									<outline text="6">
+										<outline text="@Channel">
+											<outline text="11"/>
+										</outline>
+									</outline>
+									<outline text="@Name">
+										<outline text="WBS Console Line IN"/>
+									</outline>
+								</outline>
+								<outline text="@Direction">
+									<outline text="Send"/>
+								</outline>
+								<outline text="@Pan">
+									<outline text="Left"/>
+								</outline>
+								<outline text="@name">
+									<outline text="LEFT OUT"/>
+								</outline>
+								<outline text="@BUSSES">
+									<outline text="90">
+										<outline text="@Direction">
+											<outline text="SUM"/>
+										</outline>
+										<outline text="@Name">
+											<outline text="LEFT DUT"/>
+										</outline>
+										<outline text="@id">
+											<outline text="AB0"/>
+										</outline>
+									</outline>
+								</outline>
+								<outline text="@BYPASSES">
+									<outline text="70">
+										<outline text="@Name">
+											<outline text="Left IN to OUT"/>
+										</outline>
+										<outline text="@Pan">
+											<outline text="LEFT"/>
+										</outline>
+									</outline>
+								</outline>
+							</outline>
+							<outline text="1">
+								<outline text="@relay">
+									<outline text="1">
+										<outline text="@Channel">
+											<outline text="13"/>
+										</outline>
+									</outline>
+									<outline text="2">
+										<outline text="@Channel">
+											<outline text="15"/>
+										</outline>
+									</outline>
+									<outline text="3">
+										<outline text="@Channel">
+											<outline text="17"/>
+										</outline>
+									</outline>
+									<outline text="4">
+										<outline text="@Channel">
+											<outline text="19"/>
+										</outline>
+									</outline>
+									<outline text="5">
+										<outline text="@Channel">
+											<outline text="21"/>
+										</outline>
+									</outline>
+									<outline text="6">
+										<outline text="@Channel">
+											<outline text="23"/>
+										</outline>
+									</outline>
+									<outline text="@Name">
+										<outline text="WBS Console Line OUT"/>
+									</outline>
+								</outline>
+								<outline text="@Direction">
+									<outline text="Return">
+										<outline text="RETURN"/>
+									</outline>
+								</outline>
+								<outline text="@Pan">
+									<outline text="Left"/>
+								</outline>
+								<outline text="@name">
+									<outline text="LEFT OUT"/>
+								</outline>
+								<outline text="@BUSSES">
+									<outline text="91">
+										<outline text="@Direction">
+											<outline text="RESULT"/>
+										</outline>
+										<outline text="@Name">
+											<outline text="LEFT DUT"/>
+										</outline>
+										<outline text="@id">
+											<outline text="AB1"/>
+										</outline>
+									</outline>
+								</outline>
+								<outline text="@BYPASSES">
+									<outline text="70">
+										<outline text="@Name">
+											<outline text="Left IN to OUT"/>
+										</outline>
+										<outline text="@Pan">
+											<outline text="LEFT"/>
+										</outline>
+									</outline>
+									<outline text="71">
+										<outline text="@Name">
+											<outline text="Mono"/>
+										</outline>
+									</outline>
+								</outline>
+							</outline>
+							<outline text="2">
+								<outline text="@relay">
+									<outline text="1">
+										<outline text="@Channel">
+											<outline text="2"/>
+										</outline>
+									</outline>
+									<outline text="2">
+										<outline text="@Channel">
+											<outline text="4"/>
+										</outline>
+									</outline>
+									<outline text="3">
+										<outline text="@Channel">
+											<outline text="6"/>
+										</outline>
+									</outline>
+									<outline text="4">
+										<outline text="@Channel">
+											<outline text="8"/>
+										</outline>
+									</outline>
+									<outline text="5">
+										<outline text="@Channel">
+											<outline text="10"/>
+										</outline>
+									</outline>
+									<outline text="6">
+										<outline text="@Channel">
+											<outline text="12"/>
+										</outline>
+									</outline>
+									<outline text="@Name">
+										<outline text="WBS Console Line IN"/>
+									</outline>
+								</outline>
+								<outline text="@Direction">
+									<outline text="SEND"/>
+								</outline>
+								<outline text="@Pan">
+									<outline text="RIGHT"/>
+								</outline>
+								<outline text="@name">
+									<outline text="RIGHT OUT"/>
+								</outline>
+								<outline text="@BUSSES">
+									<outline text="92">
+										<outline text="@Name">
+											<outline text="RIGHT  DUT"/>
+										</outline>
+										<outline text="@Direction">
+											<outline text="ACCEPT"/>
+										</outline>
+										<outline text="@id">
+											<outline text="AB2"/>
+										</outline>
+									</outline>
+								</outline>
+								<outline text="@BYPASSES">
+									<outline text="71">
+										<outline text="@Name">
+											<outline text="Mono"/>
+										</outline>
+									</outline>
+									<outline text="72">
+										<outline text="@Name">
+											<outline text="Right  IN to OUT"/>
+										</outline>
+										<outline text="@Pan">
+											<outline text="RIGHT"/>
+										</outline>
+									</outline>
+								</outline>
+							</outline>
+							<outline text="3">
+								<outline text="@relay">
+									<outline text="1">
+										<outline text="@Channel">
+											<outline text="14"/>
+										</outline>
+									</outline>
+									<outline text="2">
+										<outline text="@Channel">
+											<outline text="16"/>
+										</outline>
+									</outline>
+									<outline text="3">
+										<outline text="@Channel">
+											<outline text="18"/>
+										</outline>
+									</outline>
+									<outline text="4">
+										<outline text="@Channel">
+											<outline text="20"/>
+										</outline>
+									</outline>
+									<outline text="5">
+										<outline text="@Channel">
+											<outline text="22"/>
+										</outline>
+									</outline>
+									<outline text="6">
+										<outline text="@Channel">
+											<outline text="24"/>
+										</outline>
+									</outline>
+									<outline text="@Name">
+										<outline text="WBS Console Line OUT"/>
+									</outline>
+								</outline>
+								<outline text="@Direction">
+									<outline text="RETURN"/>
+								</outline>
+								<outline text="@Pan">
+									<outline text="RIGHT"/>
+								</outline>
+								<outline text="@name">
+									<outline text="RIGHT OUT"/>
+								</outline>
+								<outline text="@BUSSES">
+									<outline text="93">
+										<outline text="@Name">
+											<outline text="RIGHT  DUT "/>
+										</outline>
+										<outline text="@Direction">
+											<outline text="RETURN"/>
+										</outline>
+										<outline text="@id">
+											<outline text="AB3"/>
+										</outline>
+									</outline>
+								</outline>
+								<outline text="@BYPASSES">
+									<outline text="72">
+										<outline text="@Name">
+											<outline text="Right  IN to OUT"/>
+										</outline>
+										<outline text="@Pan">
+											<outline text="RIGHT"/>
+										</outline>
+									</outline>
+								</outline>
+							</outline>
+						</outline>
+					</outline>
+					<outline text="900">
+						<outline text="@Name">
+							<outline text="BENCH IO"/>
+						</outline>
+						<outline text="@Bank">
+							<outline text="0">
+								<outline text="@relay">
+									<outline text="1">
+										<outline text="@Name">
+											<outline text="Transformer"/>
+										</outline>
+									</outline>
+									<outline text="2">
+										<outline text="@Name">
+											<outline text="WBS M455 IN"/>
+										</outline>
+									</outline>
+									<outline text="3">
+										<outline text="@Name">
+											<outline text="NC"/>
+										</outline>
+									</outline>
+									<outline text="4">
+										<outline text="@Name">
+											<outline text="MUSIC"/>
+										</outline>
+									</outline>
+									<outline text="5"/>
+									<outline text="6"/>
+								</outline>
+								<outline text="@Direction">
+									<outline text="Send"/>
+								</outline>
+								<outline text="@Pan">
+									<outline text="Left"/>
+								</outline>
+								<outline text="@name">
+									<outline text="LEFT OUT"/>
+								</outline>
+								<outline text="@BUSSES">
+									<outline text="90">
+										<outline text="@Direction">
+											<outline text="SUM"/>
+										</outline>
+										<outline text="@Name">
+											<outline text="LEFT DUT"/>
+										</outline>
+										<outline text="@id">
+											<outline text="AB0"/>
+										</outline>
+									</outline>
+								</outline>
+								<outline text="@BYPASSES">
+									<outline text="70">
+										<outline text="@Name">
+											<outline text="Left IN to OUT"/>
+										</outline>
+										<outline text="@Pan">
+											<outline text="LEFT"/>
+										</outline>
+									</outline>
+								</outline>
+							</outline>
+							<outline text="1">
+								<outline text="@relay">
+									<outline text="1">
+										<outline text="@Name">
+											<outline text="Transformer"/>
+										</outline>
+									</outline>
+									<outline text="2">
+										<outline text="@Name">
+											<outline text="WBS M455 IN"/>
+										</outline>
+									</outline>
+									<outline text="3">
+										<outline text="@Name">
+											<outline text="NC"/>
+										</outline>
+									</outline>
+									<outline text="4">
+										<outline text="@Name">
+											<outline text="MUSIC"/>
+										</outline>
+									</outline>
+									<outline text="5"/>
+									<outline text="6"/>
+									<outline text="@Direction">
+										<outline text="Return"/>
+									</outline>
+								</outline>
+								<outline text="@Pan">
+									<outline text="Left"/>
+								</outline>
+								<outline text="@name">
+									<outline text="LEFT OUT"/>
+								</outline>
+								<outline text="@BUSSES">
+									<outline text="91">
+										<outline text="@Direction">
+											<outline text="RESULT"/>
+										</outline>
+										<outline text="@Name">
+											<outline text="LEFT DUT"/>
+										</outline>
+										<outline text="@id">
+											<outline text="AB1"/>
+										</outline>
+									</outline>
+								</outline>
+								<outline text="@BYPASSES">
+									<outline text="70">
+										<outline text="@Name">
+											<outline text="Left IN to OUT"/>
+										</outline>
+										<outline text="@Pan">
+											<outline text="LEFT"/>
+										</outline>
+									</outline>
+									<outline text="71">
+										<outline text="@Name">
+											<outline text="Mono"/>
+										</outline>
+									</outline>
+								</outline>
+							</outline>
+							<outline text="2">
+								<outline text="@relay">
+									<outline text="1">
+										<outline text="@Name">
+											<outline text="Transformer"/>
+										</outline>
+									</outline>
+									<outline text="2">
+										<outline text="@Name">
+											<outline text="M445 Monitor"/>
+										</outline>
+									</outline>
+									<outline text="3">
+										<outline text="@Name">
+											<outline text="POD22 - DAC"/>
+										</outline>
+									</outline>
+									<outline text="4">
+										<outline text="@Name">
+											<outline text="MACKIE"/>
+										</outline>
+									</outline>
+									<outline text="5"/>
+									<outline text="6"/>
+									<outline text="@Direction">
+										<outline text="SEND"/>
+									</outline>
+								</outline>
+								<outline text="@Pan">
+									<outline text="RIGHT"/>
+								</outline>
+								<outline text="@name">
+									<outline text="RIGHT OUT"/>
+								</outline>
+								<outline text="@BUSSES">
+									<outline text="92">
+										<outline text="@Name">
+											<outline text="RIGHT  DUT"/>
+										</outline>
+										<outline text="@Direction">
+											<outline text="ACCEPT"/>
+										</outline>
+										<outline text="@id">
+											<outline text="AB2"/>
+										</outline>
+									</outline>
+								</outline>
+								<outline text="@BYPASSES">
+									<outline text="71">
+										<outline text="@Name">
+											<outline text="Mono"/>
+										</outline>
+									</outline>
+									<outline text="72">
+										<outline text="@Name">
+											<outline text="Right  IN to OUT"/>
+										</outline>
+										<outline text="@Pan">
+											<outline text="RIGHT"/>
+										</outline>
+									</outline>
+								</outline>
+							</outline>
+							<outline text="3">
+								<outline text="@relay">
+									<outline text="1">
+										<outline text="Transformer"/>
+									</outline>
+									<outline text="2">
+										<outline text="M445 Monitor"/>
+									</outline>
+									<outline text="3">
+										<outline text="POD22 - DAC"/>
+									</outline>
+									<outline text="4">
+										<outline text="MACKIE"/>
+									</outline>
+									<outline text="5"/>
+									<outline text="6"/>
+								</outline>
+								<outline text="@Direction">
+									<outline text="RETURN"/>
+								</outline>
+								<outline text="@Pan">
+									<outline text="RIGHT"/>
+								</outline>
+								<outline text="@name">
+									<outline text="RIGHT OUT"/>
+								</outline>
+								<outline text="@BUSSES">
+									<outline text="93">
+										<outline text="@Name">
+											<outline text="RIGHT  DUT "/>
+										</outline>
+										<outline text="@Direction">
+											<outline text="RETURN"/>
+										</outline>
+										<outline text="@id">
+											<outline text="AB3"/>
+										</outline>
+									</outline>
+								</outline>
+								<outline text="@BYPASSES">
+									<outline text="72">
+										<outline text="@Name">
+											<outline text="Right  IN to OUT"/>
+										</outline>
+										<outline text="@Pan">
+											<outline text="RIGHT"/>
+										</outline>
+									</outline>
+								</outline>
+							</outline>
+						</outline>
+					</outline>
+				</outline>
+			</outline>
+		</outline>
+		<outline text="Measurements">
+			<outline text="&apos;Frequency  Public Freq As Double     Public Period As Double     Public FreqStart As Double     Public FreqStop As Double     Public FreqSpan As Double     Public Polarity As BooleanSwitch "/>
+			<outline text="Public Amplitude As Double  Public Units As String"/>
+			<outline text=" &apos;voltage  Public VAC As Double     Public VDC As Double     Public Vpp As Double     Public Vrms As Double  Public VrmsSeries As Series"/>
+			<outline text=" &apos;Signal Strength  Public dBm As Double     Public dBu As Double     Public dBr As Double "/>
+			<outline text="    &apos;current     Public IAC As Double     Public IDC As Double ">
+				<outline text="IDEA:"/>
+			</outline>
+			<outline text="  &apos;power     Public Power As Double"/>
+			<outline text="    &apos;load     Public Resistance As Double     Public Capacitance As Double Public Impedance As Integer"/>
+			<outline text="    &apos;Diode     Public Diode As Double"/>
+			<outline text="    &apos;Distortion     Public THD As Double     Public Continuity As Boolean     Public SignaltoNoise As Double"/>
+			<outline text="   Public LogicLevel As Boolean "/>
+			<outline text="&apos;Spectrum  Public CenterFreq As Double  Public Span As Double  Public StartFreq As Double  Public StopFreq As Double"/>
+			<outline text="&apos;Shape  Public WaveformShape As String  Public DutyCycle As String"/>
+		</outline>
+	</body>
+</opml>

@@ -1,0 +1,979 @@
+﻿
+
+
+
+Public Class Form1
+
+    Public ioMgr As Ivi.Visa.Interop.ResourceManager
+
+
+    Public DMM1 As Ivi.Visa.Interop.FormattedIO488
+    Public DMM2 As Ivi.Visa.Interop.FormattedIO488
+    Public DMM3 As Ivi.Visa.Interop.FormattedIO488
+    Public DMM4 As Ivi.Visa.Interop.FormattedIO488
+
+    Public DMM1Mode As String
+    Public DMM2Mode As String
+    Public DMM3Mode As String
+    Public DMM4Mode As String
+
+
+    Public AudioAnalyzer As Ivi.Visa.Interop.FormattedIO488
+
+    Public Ocilliscope As Ivi.Visa.Interop.FormattedIO488
+
+    Public PSU As Ivi.Visa.Interop.FormattedIO488
+
+    Public SignalGen As Ivi.Visa.Interop.FormattedIO488
+
+    Public RIGOL As Ivi.Visa.Interop.FormattedIO488
+
+    Public DataCollectionTable As New DataTable("CollectedData")
+
+    Public Sub Form1_closing(sender As Object, e As EventArgs) Handles MyBase.Closing
+        PSUOFF()
+
+
+        DMM1.WriteString("DISP:TEXT ""HAVE"" ")
+        DMM2.WriteString("DISP:TEXT ""A"" ")
+        DMM3.WriteString("DISP:TEXT ""GOOD"" ")
+        DMM4.WriteString("DISP:TEXT ""DAY Eh"" ")
+
+    End Sub
+
+
+
+
+    Public Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TabControl1.TabIndex = 3
+
+
+        ioMgr = New Ivi.Visa.Interop.ResourceManager
+
+        DMM1 = New Ivi.Visa.Interop.FormattedIO488
+        DMM2 = New Ivi.Visa.Interop.FormattedIO488
+        DMM3 = New Ivi.Visa.Interop.FormattedIO488
+        DMM4 = New Ivi.Visa.Interop.FormattedIO488
+
+        AudioAnalyzer = New Ivi.Visa.Interop.FormattedIO488
+
+        Ocilliscope = New Ivi.Visa.Interop.FormattedIO488
+
+        PSU = New Ivi.Visa.Interop.FormattedIO488
+
+        SignalGen = New Ivi.Visa.Interop.FormattedIO488
+
+        RIGOL = New Ivi.Visa.Interop.FormattedIO488
+
+        AssignAddress()
+
+    End Sub
+
+    Private Sub AssignAddress()
+        DMM1.IO = ioMgr.Open(("TCPIP0::" & IPaddress.Text & "::" & gpibAddress.Text & "," & CDec(DMM_gpib_1.Text) & "::INSTR"))    ' 10 is the instr. address 
+        DMM2.IO = ioMgr.Open(("TCPIP0::" & IPaddress.Text & "::" & gpibAddress.Text & "," & CDec(DMM_gpib_2.Text) & "::INSTR"))    ' 10 is the instr. address 
+        DMM3.IO = ioMgr.Open(("TCPIP0::" & IPaddress.Text & "::" & gpibAddress.Text & "," & CDec(DMM_gpib_3.Text) & "::INSTR"))    ' 10 is the instr. address 
+        DMM4.IO = ioMgr.Open(("TCPIP0::" & IPaddress.Text & "::" & gpibAddress.Text & "," & CDec(DMM_gpib_4.Text) & "::INSTR"))    ' 10 is the instr. address 
+        AudioAnalyzer.IO = ioMgr.Open(("TCPIP0::" & IPaddress.Text & "::" & gpibAddress.Text & "," & CDec(AudioAnalyzer_gpib.Text) & "::INSTR"))    ' 10 is the instr. address 
+        Ocilliscope.IO = ioMgr.Open(("TCPIP0::" & IPaddress.Text & "::" & gpibAddress.Text & "," & CDec(Ocilliscope_gpib.Text) & "::INSTR"))    ' 10 is the instr. address 
+        PSU.IO = ioMgr.Open(("TCPIP0::" & IPaddress.Text & "::" & gpibAddress.Text & "," & CDec(PSU_gpib.Text) & "::INSTR"))    ' 10 is the instr. address 
+        SignalGen.IO = ioMgr.Open(("TCPIP0::" & IPaddress.Text & "::" & gpibAddress.Text & "," & CDec(SignalGen_gpib.Text) & "::INSTR"))    ' 10 is the instr. address 
+
+    End Sub
+    Private Sub NameDevices_Click(sender As Object, e As EventArgs) Handles NameDevices.Click
+
+
+        DMM1.WriteString("DISP:TEXT """ & DMM_Name_1.Text & """")
+        DMMLabel1.Text = DMM_Name_1.Text
+
+        DMM2.WriteString("DISP:TEXT """ & DMM_Name_2.Text & """")
+        DMMLabel2.Text = DMM_Name_2.Text
+
+        DMM3.WriteString("DISP:TEXT """ & DMM_Name_3.Text & """")
+        DMMLabel3.Text = DMM_Name_3.Text
+
+        DMM4.WriteString("DISP:TEXT """ & DMM_Name_4.Text & """")
+        DMMLabel4.Text = DMM_Name_4.Text
+
+        AudioAnalyzer.WriteString("21.0 SP")
+
+
+        ''Ocilliscope.WriteString("DISP:TEXT """ & Ocilliscope_name.Text & """")
+
+
+
+        PSU.WriteString("DISP:TEXT """ & PSU_name.Text & """")
+
+
+
+        SignalGen.WriteString("DISP:TEXT """ & SignalGen_name.Text & """")
+
+
+        'Set to default 
+        DMM_function_1.SelectedIndex = 0
+        DMM_function_2.SelectedIndex = 0
+        DMM_function_3.SelectedIndex = 0
+        DMM_function_4.SelectedIndex = 0
+
+        Signal_Type.SelectedIndex = 0
+        Signal_Amp_unit.SelectedIndex = 0
+
+
+        CreatTable()
+
+
+
+    End Sub
+
+
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles READ_DMM.Click
+        DMM_Read_1()
+        DMM_Read_2()
+        DMM_Read_3()
+        DMM_Read_4()
+
+    End Sub
+
+    Public Sub DMM_Config_1()
+
+
+        DMM1.WriteString("*RST")
+        If DMM_function_1.SelectedIndex = 0 Then
+            DMM1Mode = "MEAS:VOLT:DC?"
+            ' 1 I DC
+        ElseIf DMM_function_1.SelectedIndex = 1 Then
+            DMM1Mode = "MEAS:CURR:DC?"
+            '2 V AC
+        ElseIf DMM_function_1.SelectedIndex = 2 Then
+            DMM1Mode = "MEAS:VOLT:AC?"
+            '3 I AC
+        ElseIf DMM_function_1.SelectedIndex = 3 Then
+            DMM1Mode = "MEAS:CURR:AC?"
+            '4 R 2W
+        ElseIf DMM_function_1.SelectedIndex = 4 Then
+            DMM1Mode = "MEAS:RES?"
+            '5 R 4W
+        ElseIf DMM_function_1.SelectedIndex = 5 Then
+            DMM1Mode = "MEAS:FRES?"
+            '6 Diode
+        ElseIf DMM_function_1.SelectedIndex = 6 Then
+            DMM1Mode = "MEAS:DIODe?"
+            '7 Capacitance
+        ElseIf DMM_function_1.SelectedIndex = 7 Then
+            DMM1Mode = "MEAS:FREQuency?"
+            '8 Freq
+        ElseIf DMM_function_1.SelectedIndex = 8 Then
+            DMM1Mode = "MEAS:FREQuency?"
+            '9 Period
+        ElseIf DMM_function_1.SelectedIndex = 9 Then
+            DMM1Mode = "MEAS:PERiod?"
+            '10 Continuity
+        ElseIf DMM_function_1.SelectedIndex = 10 Then
+            DMM1Mode = "MEAS:CONTinuity?"
+        End If
+
+
+    End Sub
+    Public Sub DMM_Config_2()
+
+
+        DMM2.WriteString("*RST")
+        If DMM_function_2.SelectedIndex = 0 Then
+            DMM2Mode = "MEAS:VOLT:DC?"
+            ' 1 I DC
+        ElseIf DMM_function_2.SelectedIndex = 1 Then
+            DMM2Mode = "MEAS:CURR:DC?"
+            '2 V AC
+        ElseIf DMM_function_2.SelectedIndex = 2 Then
+            DMM2Mode = "MEAS:VOLT:AC?"
+            '3 I AC
+        ElseIf DMM_function_2.SelectedIndex = 3 Then
+            DMM2Mode = "MEAS:CURR:AC?"
+            '4 R 2W
+        ElseIf DMM_function_2.SelectedIndex = 4 Then
+            DMM2Mode = "MEAS:RES?"
+            '5 R 4W
+        ElseIf DMM_function_2.SelectedIndex = 5 Then
+            DMM2Mode = "MEAS:FRES?"
+            '6 Diode
+        ElseIf DMM_function_2.SelectedIndex = 6 Then
+            DMM2Mode = "MEAS:DIODe?"
+            '7 Capacitance
+        ElseIf DMM_function_2.SelectedIndex = 7 Then
+            DMM2Mode = "MEAS:FREQuency?"
+            '8 Freq
+        ElseIf DMM_function_2.SelectedIndex = 8 Then
+            DMM2Mode = "MEAS:FREQuency?"
+            '9 Period
+        ElseIf DMM_function_2.SelectedIndex = 9 Then
+            DMM2Mode = "MEAS:PERiod?"
+            '10 Continuity
+        ElseIf DMM_function_2.SelectedIndex = 10 Then
+            DMM2Mode = "MEAS:CONTinuity?"
+        End If
+
+
+    End Sub
+    Public Sub DMM_Config_3()
+
+
+        DMM3.WriteString("*RST")
+        If DMM_function_3.SelectedIndex = 0 Then
+            DMM3Mode = "MEAS:VOLT:DC?"
+            ' 1 I DC
+        ElseIf DMM_function_3.SelectedIndex = 1 Then
+            DMM3Mode = "MEAS:CURR:DC?"
+            '2 V AC
+        ElseIf DMM_function_3.SelectedIndex = 2 Then
+            DMM3Mode = "MEAS:VOLT:AC?"
+            '3 I AC
+        ElseIf DMM_function_3.SelectedIndex = 3 Then
+            DMM3Mode = "MEAS:CURR:AC?"
+            '4 R 2W
+        ElseIf DMM_function_3.SelectedIndex = 4 Then
+            DMM3Mode = "MEAS:RES?"
+            '5 R 4W
+        ElseIf DMM_function_3.SelectedIndex = 5 Then
+            DMM3Mode = "MEAS:FRES?"
+            '6 Diode
+        ElseIf DMM_function_3.SelectedIndex = 6 Then
+            DMM3Mode = "MEAS:DIODe?"
+            '7 Capacitance
+        ElseIf DMM_function_3.SelectedIndex = 7 Then
+            DMM3Mode = "MEAS:FREQuency?"
+            '8 Freq
+        ElseIf DMM_function_3.SelectedIndex = 8 Then
+            DMM3Mode = "MEAS:FREQuency?"
+            '9 Period
+        ElseIf DMM_function_3.SelectedIndex = 9 Then
+            DMM3Mode = "MEAS:PERiod?"
+            '10 Continuity
+        ElseIf DMM_function_3.SelectedIndex = 10 Then
+            DMM3Mode = "MEAS:CONTinuity?"
+        End If
+
+
+    End Sub
+    Public Sub DMM_Config_4()
+
+        DMM4.WriteString("*RST")
+
+        If DMM_function_4.SelectedIndex = 0 Then
+            DMM4Mode = "MEAS:VOLT:DC?"
+            ' 1 I DC
+        ElseIf DMM_function_4.SelectedIndex = 1 Then
+            DMM4Mode = "MEAS:CURR:DC?"
+            '2 V AC
+        ElseIf DMM_function_4.SelectedIndex = 2 Then
+            DMM4Mode = "MEAS:VOLT:AC?"
+            '3 I AC
+        ElseIf DMM_function_4.SelectedIndex = 3 Then
+            DMM4Mode = "MEAS:CURR:AC?"
+            '4 R 2W
+        ElseIf DMM_function_4.SelectedIndex = 4 Then
+            DMM4Mode = "MEAS:RES?"
+            '5 R 4W
+        ElseIf DMM_function_4.SelectedIndex = 5 Then
+            DMM4Mode = "MEAS:FRES?"
+            '6 Diode
+        ElseIf DMM_function_4.SelectedIndex = 6 Then
+            DMM4Mode = "MEAS:DIODe?"
+            '7 Capacitance
+        ElseIf DMM_function_4.SelectedIndex = 7 Then
+            DMM4Mode = "MEAS:FREQuency?"
+            '8 Freq
+        ElseIf DMM_function_4.SelectedIndex = 8 Then
+            DMM4Mode = "MEAS:FREQuency?"
+            '9 Period
+        ElseIf DMM_function_4.SelectedIndex = 9 Then
+            DMM4Mode = "MEAS:PERiod?"
+            '10 Continuity
+        ElseIf DMM_function_4.SelectedIndex = 10 Then
+            DMM4Mode = "MEAS:CONTinuity?"
+        End If
+
+
+    End Sub
+
+    Public Sub DMM_Read_1()
+        'read the value
+
+        DMM1.WriteString(DMM1Mode)
+        Dim DMM1ReadNumber = DMM1.ReadNumber()
+
+
+        DMM_Value_1.Text = CDbl(DMM1ReadNumber)
+
+        'if it's Vac calculate dBm
+        If DMM_function_1.SelectedIndex = 2 Then
+            DMM_dbm_1.Text = 10 * Math.Log10((CDbl((DMM1ReadNumber) ^ 2) / CDbl(dBm_ref_imp.Text)) / (0.001))
+        Else
+            DMM_dbm_1.Text = ""
+        End If
+    End Sub
+    Public Sub DMM_Read_2()
+        DMM2.WriteString(DMM2Mode)
+        Dim DMM2ReadNumber = DMM2.ReadNumber()
+
+        DMM_Value_2.Text = CDbl(DMM2ReadNumber)
+
+        'if it's Vac calculate dBm
+        If DMM_function_2.SelectedIndex = 2 Then
+            DMM_dbm_2.Text = 10 * Math.Log10((CDbl(DMM2ReadNumber) ^ 2) / CDbl(dBm_ref_imp.Text) / (0.001))
+        Else
+            DMM_dbm_2.Text = ""
+        End If
+    End Sub
+    Public Sub DMM_Read_3()
+
+        DMM3.WriteString(DMM3Mode)
+        Dim DMM3ReadNumber = DMM3.ReadNumber()
+        'read the value
+        DMM_Value_3.Text = CDbl(DMM3ReadNumber)
+
+        'if it's Vac calculate dBm
+        If DMM_function_3.SelectedIndex = 2 Then
+            DMM_dbm_3.Text = 10 * Math.Log10((CDbl(DMM3ReadNumber) ^ 2) / CDbl(dBm_ref_imp.Text) / (0.001))
+        Else
+            DMM_dbm_3.Text = ""
+        End If
+    End Sub
+    Public Sub DMM_Read_4()
+
+        DMM4.WriteString(DMM4Mode)
+
+        Dim DMM4ReadNumber = DMM4.ReadNumber()
+
+        'read the value
+        DMM_Value_4.Text = CDbl(DMM4ReadNumber)
+
+        'if it's Vac calculate dBm
+        If DMM_function_4.SelectedIndex = 2 Then
+            DMM_dbm_4.Text = CDbl(10 * Math.Log10((CDbl(DMM4ReadNumber) ^ 2) / CDbl(dBm_ref_imp.Text) / (0.001)))
+        Else
+            DMM_dbm_4.Text = ""
+        End If
+    End Sub
+
+    Private Sub DMM_function_1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DMM_function_1.SelectedIndexChanged
+        DMM_Config_1()
+        DMM1.WriteString("DISP:TEXT:CLEAR")
+
+    End Sub
+    Private Sub DMM_function_2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DMM_function_2.SelectedIndexChanged
+        DMM_Config_2()
+        DMM2.WriteString("DISP:TEXT:CLEAR")
+    End Sub
+    Private Sub DMM_function_3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DMM_function_3.SelectedIndexChanged
+        DMM_Config_3()
+        DMM3.WriteString("DISP:TEXT:CLEAR")
+    End Sub
+    Private Sub DMM_function_4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DMM_function_4.SelectedIndexChanged
+        DMM_Config_4()
+        DMM4.WriteString("DISP:TEXT:CLEAR")
+    End Sub
+
+    Private Sub Label12_Click(sender As Object, e As EventArgs) Handles Label12.Click
+
+    End Sub
+
+    Private Sub DomainUpDown1_SelectedItemChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles Button1.Click
+        config_SigGen()
+        SignalGen.WriteString("OUTPUT ON")
+    End Sub
+
+    Public Sub config_SigGen()
+        SignalGen.WriteString("DISPLAY:TEXT:CLEAR")
+        SignalGen.WriteString("OUTPUT:LOAD " & dBm_ref_imp.Text)
+        SignalGen.WriteString("FUNC " & Signal_Type.Text)
+        SignalGen.WriteString("FREQ " & Sine_freq.Text)
+        SignalGen.WriteString("VOLT:UNIT " & Signal_Amp_unit.Text)
+
+
+        SignalGen.WriteString("VOLT " & SGamp.Text)
+        AutoScaleScope()
+        GetScopeData()
+    End Sub
+
+    Public Sub FrequencyUpdate(freq As Integer)
+        SignalGen.WriteString("FREQ " & freq)
+        FrequencyTrackBar.Value = freq
+        Sine_freq.Text = freq
+    End Sub
+
+    Private Sub Sine_amp_TextChanged(sender As Object, e As EventArgs) Handles SGamp.TextChanged
+
+    End Sub
+
+    Private Sub DutyCycle_Scroll(sender As Object, e As EventArgs) Handles DutyCycle.Scroll
+        If Signal_Type.Text = "SQU" Then
+            SignalGen.WriteString("FUNC:SQU:DCYC " & DutyCycle.Value)
+        ElseIf Signal_Type.Text = "RAMP" Then
+            SignalGen.WriteString("FUNC:RAMP:SYMM " & DutyCycle.Value)
+        Else
+
+
+        End If
+    End Sub
+
+    Private Sub Signal_Amp_unit_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Signal_Amp_unit.SelectedIndexChanged
+
+    End Sub
+
+
+
+    Private Sub Sine_freq_TextChanged(sender As Object, e As EventArgs) Handles Sine_freq.TextChanged
+
+        If FrequencyTrackBar.Value > 0 Then
+            FrequencyTrackBar.Value = Sine_freq.Text
+        End If
+    End Sub
+
+    Private Sub DistortionChange_Click(sender As Object, e As EventArgs) Handles DistortionChange.Click
+        AudioAnalyzer.WriteString("CL")
+
+
+        AudioAnalyzer.WriteString("FR " & Dist_freq.Text & " HZ")
+        AudioAnalyzer.WriteString("AP " & Dist_Amp.Text & " VL")
+
+        'Dist_Dist_measure_DSTN
+        ''AudioAnalyzer.WriteString("S31")
+
+        'hold
+
+
+         AudioAnalyzer.WriteString("RR")
+        Dist_measure_DSTN.Text = AudioAnalyzer.ReadString()
+        'Dist_measure_SINAD
+        ' AudioAnalyzer.WriteString("M2")
+        ' Dist_measure_SINAD.Text = AudioAnalyzer.ReadNumber()
+
+
+        'Dist_measure_Voltage
+        '  AudioAnalyzer.WriteString("MV")
+        '   Dist_measure_Voltage.Text = AudioAnalyzer.ReadNumber()
+
+
+
+
+    End Sub
+
+    Private Sub Dist_measure_SINAD_Click(sender As Object, e As EventArgs) Handles Dist_measure_SINAD.TextChanged
+
+    End Sub
+
+    Private Sub Dist_Dist_measure_DSTN_click(sender As Object, e As EventArgs) Handles Dist_measure_DSTN.TextChanged
+
+    End Sub
+
+
+
+    Private Sub FrequencyTrackBar_Scroll(sender As Object, e As EventArgs) Handles FrequencyTrackBar.Scroll
+        Sine_freq.Text = FrequencyTrackBar.Value
+        SignalGen.WriteString("FREQ " & Sine_freq.Text)
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles PSU_ON_1.Click
+
+        If PSU_ON_1.Text = "ON" Then
+            PSU.WriteString("VSET 1," & PSU_V_1.Text)
+            PSU.WriteString("ISET 1," & PSU_I_1.Text)
+            PSU.WriteString("OUT 1,1")
+            PSU_ON_1.Text = "OFF"
+            PSU_ON_1.BackColor = Color.Orange
+        ElseIf PSU_ON_1.Text = "OFF" Then
+            PSU.WriteString("OUT 1,0")
+            PSU_ON_1.Text = "ON"
+            PSU_ON_1.BackColor = Color.Transparent
+        End If
+        If PSULink12.Checked Then
+            If PSU_ON_2.Text = "ON" Then
+                PSU_V_2.Text = PSU_V_1.Text
+                PSU_I_2.Text = PSU_I_1.Text
+                PSU.WriteString("VSET 2," & PSU_V_1.Text)
+                PSU.WriteString("ISET 2," & PSU_I_1.Text)
+                PSU.WriteString("OUT 2,1")
+                PSU_ON_2.Text = "OFF"
+                PSU_ON_2.BackColor = Color.Orange
+            ElseIf PSU_ON_2.Text = "OFF" Then
+                PSU.WriteString("OUT 2,0")
+                PSU_ON_2.Text = "ON"
+                PSU_ON_2.BackColor = Color.Transparent
+            End If
+
+        End If
+
+        ReadPSUValue()
+
+    End Sub
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles PSU_ON_2.Click
+        If PSU_ON_2.Text = "ON" Then
+            PSU.WriteString("VSET 2," & PSU_V_2.Text)
+            PSU.WriteString("ISET 2," & PSU_I_2.Text)
+            PSU.WriteString("OUT 2,1")
+            PSU_ON_2.Text = "OFF"
+            PSU_ON_2.BackColor = Color.Orange
+        ElseIf PSU_ON_2.Text = "OFF" Then
+            PSU.WriteString("OUT 2,0")
+            PSU_ON_2.Text = "ON"
+            PSU_ON_2.BackColor = Color.Transparent
+        End If
+
+
+
+
+        ReadPSUValue()
+    End Sub
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles PSU_ON_3.Click
+
+        If PSU_ON_3.Text = "ON" Then
+            PSU.WriteString("VSET 3," & PSU_V_3.Text)
+            PSU.WriteString("ISET 3," & PSU_I_3.Text)
+            PSU.WriteString("OUT 3,1")
+            PSU_ON_3.Text = "OFF"
+            PSU_ON_3.BackColor = Color.Orange
+
+        ElseIf PSU_ON_3.Text = "OFF" Then
+            PSU.WriteString("OUT 3,0")
+            PSU_ON_3.Text = "ON"
+            PSU_ON_3.BackColor = Color.Transparent
+        End If
+
+        If PSUlink34.Checked Then
+            PSU_V_4.Text = PSU_V_3.Text
+            PSU_I_4.Text = PSU_I_3.Text
+            If PSU_ON_4.Text = "ON" Then
+                PSU.WriteString("VSET 4," & PSU_V_3.Text)
+                PSU.WriteString("ISET 4," & PSU_I_3.Text)
+                PSU.WriteString("OUT 4,1")
+                PSU_ON_4.Text = "OFF"
+                PSU_ON_4.BackColor = Color.Orange
+            ElseIf PSU_ON_4.Text = "OFF" Then
+                PSU.WriteString("OUT 4,0")
+                PSU_ON_4.Text = "ON"
+                PSU_ON_4.BackColor = Color.Transparent
+            End If
+
+
+        End If
+
+        ReadPSUValue()
+    End Sub
+    Private Sub Button5_Click_1(sender As Object, e As EventArgs) Handles PSU_ON_4.Click
+        If PSU_ON_4.Text = "ON" Then
+            PSU.WriteString("VSET 4," & PSU_V_4.Text)
+            PSU.WriteString("ISET 4," & PSU_I_4.Text)
+            PSU.WriteString("OUT 4,1")
+            PSU_ON_4.Text = "OFF"
+            PSU_ON_4.BackColor = Color.Orange
+        ElseIf PSU_ON_4.Text = "OFF" Then
+            PSU.WriteString("OUT 4,0")
+            PSU_ON_4.Text = "ON"
+            PSU_ON_4.BackColor = Color.Transparent
+        End If
+        ReadPSUValue()
+    End Sub
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+        PSUOFF()
+    End Sub
+
+    Public Sub PSUOFF()
+        PSU.WriteString("OUT 1,0")
+        PSU_ON_1.Text = "ON"
+        PSU_ON_1.BackColor = Color.Transparent
+
+        PSU.WriteString("OUT 2,0")
+        PSU_ON_2.Text = "ON"
+        PSU_ON_2.BackColor = Color.Transparent
+
+        PSU.WriteString("OUT 3,0")
+        PSU_ON_3.Text = "ON"
+        PSU_ON_3.BackColor = Color.Transparent
+
+        PSU.WriteString("OUT 4,0")
+        PSU_ON_4.Text = "ON"
+        PSU_ON_4.BackColor = Color.Transparent
+
+        ReadPSUValue()
+    End Sub
+
+    Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
+
+        ReadPSUValue()
+
+    End Sub
+
+    Public Sub ReadPSUValue()
+        ReadPSUValue_1()
+        ReadPSUValue_2()
+        ReadPSUValue_3()
+        ReadPSUValue_4()
+    End Sub
+
+    Public Sub ReadPSUValue_1()
+        'REad voltage and current
+        PSU.WriteString("VOUT? 1")
+        PSU_READ_V_1.Text = PSU.ReadString
+        PSU.WriteString("IOUT? 1")
+        PSU_READ_I_1.Text = PSU.ReadString
+    End Sub
+
+    Public Sub ReadPSUValue_2()
+        'REad voltage and current
+        PSU.WriteString("VOUT? 2")
+        PSU_READ_V_2.Text = PSU.ReadString
+        PSU.WriteString("IOUT? 2")
+        PSU_READ_I_2.Text = PSU.ReadString
+    End Sub
+
+    Public Sub ReadPSUValue_3()
+        'REad voltage and current
+        PSU.WriteString("VOUT? 3")
+        PSU_READ_V_3.Text = PSU.ReadString
+        PSU.WriteString("IOUT? 3")
+        PSU_READ_I_3.Text = PSU.ReadString
+    End Sub
+
+    Public Sub ReadPSUValue_4()
+        'REad voltage and current
+        PSU.WriteString("VOUT? 4")
+        PSU_READ_V_4.Text = PSU.ReadString
+        PSU.WriteString("IOUT? 4")
+        PSU_READ_I_4.Text = PSU.ReadString
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles ReadValues.Tick
+        ReadPSUValue()
+        DMM_Read_1()
+        DMM_Read_2()
+        DMM_Read_3()
+        DMM_Read_4()
+        GetScopeData()
+        CollectData()
+    End Sub
+
+    Private Sub TMRENA_Click(sender As Object, e As EventArgs) Handles TMRENA.Click
+        If TMRENA.Text = "START" Then
+            TMRENA.Text = "RUNNING"
+            ReadValues.Enabled = True
+        ElseIf TMRENA.Text = "RUNNING" Then
+            TMRENA.Text = "START"
+            ReadValues.Enabled = False
+        End If
+    End Sub
+
+
+
+
+    Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles PSULink12.CheckedChanged
+        PSU.WriteString("OUT 1,0")
+        PSU_ON_1.Text = "ON"
+        PSU_ON_1.BackColor = Color.Transparent
+
+        PSU.WriteString("OUT 2,0")
+        PSU_ON_2.Text = "ON"
+        PSU_ON_2.BackColor = Color.Transparent
+
+        PSU_V_2.Enabled = Not PSU_V_2.Enabled
+        PSU_I_2.Enabled = Not PSU_I_2.Enabled
+        PSU_ON_2.Enabled = Not PSU_ON_2.Enabled
+
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles PSUlink34.CheckedChanged
+        PSU.WriteString("OUT 3,0")
+        PSU_ON_3.Text = "ON"
+        PSU_ON_3.BackColor = Color.Transparent
+        PSU.WriteString("OUT 4,0")
+        PSU_ON_4.Text = "ON"
+        PSU_ON_4.BackColor = Color.Transparent
+
+        PSU_V_4.Enabled = Not PSU_V_4.Enabled
+        PSU_I_4.Enabled = Not PSU_I_4.Enabled
+        PSU_ON_4.Enabled = Not PSU_ON_4.Enabled
+    End Sub
+
+    Private Sub Scope_Autoscale_Click(sender As Object, e As EventArgs) Handles Scope_Autoscale.Click
+        AutoScaleScope()
+        GetScopeData()
+    End Sub
+
+
+    Public Sub GetScopeData()
+        Ocilliscope.WriteString(":MEAS:VPP? CHAN1")
+        SCOPE_Vpp_1.Text = CDbl(Ocilliscope.ReadString)
+        Ocilliscope.WriteString(":MEAS:VRMS? CHAN1")
+        SCOPE_Vrms_1.Text = CDbl(Ocilliscope.ReadString)
+        Ocilliscope.WriteString(":MEAS:FREQ? CHAN1")
+        SCOPE_FREQ_1.Text = CDbl(Ocilliscope.ReadString)
+        SCOPE_dBm_1.Text = CDbl(10 * Math.Log10((CDbl(SCOPE_Vrms_1.Text) ^ 2) / CDbl(dBm_ref_imp.Text) / (0.001)))
+
+
+
+        Ocilliscope.WriteString(":MEAS:VPP? CHAN2")
+        SCOPE_Vpp_2.Text = CDbl(Ocilliscope.ReadString)
+        Ocilliscope.WriteString(":MEAS:VRMS? CHAN2")
+        SCOPE_Vrms_2.Text = CDbl(Ocilliscope.ReadString)
+        Ocilliscope.WriteString(":MEAS:FREQ? CHAN2")
+        SCOPE_FREQ_2.Text = CDbl(Ocilliscope.ReadString)
+        SCOPE_dBm_2.Text = CDbl(10 * Math.Log10((CDbl(SCOPE_Vrms_2.Text) ^ 2) / CDbl(dBm_ref_imp.Text) / (0.001)))
+
+
+        SCOPE_dBm_diff.Text = CDbl(SCOPE_dBm_2.Text) - CDbl(SCOPE_dBm_1.Text)
+        Ocilliscope.WriteString(":MEAS:PHAS? CHAN1, CHAN2")
+        SCOPE_Phase.Text = CDbl(Ocilliscope.ReadString)
+
+
+
+    End Sub
+
+
+    Public Sub AutoScaleScope()
+        Ocilliscope.WriteString("AUToscale")
+
+
+
+
+    End Sub
+
+
+
+    Private Sub RadioButton1_CheckedChanged_1(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
+        FrequencyUpdate(100)
+    End Sub
+
+    Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
+        FrequencyUpdate(1000)
+    End Sub
+
+    Private Sub RadioButton3_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton3.CheckedChanged
+        FrequencyUpdate(10000)
+    End Sub
+
+    Private Sub RadioButton4_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton4.CheckedChanged
+        FrequencyUpdate(100000)
+    End Sub
+
+    Private Sub RadioButton5_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton5.CheckedChanged
+        FrequencyUpdate(10)
+    End Sub
+
+    Private Sub RadioButton8_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton8.CheckedChanged
+        FrequencyUpdate(2000)
+    End Sub
+
+    Private Sub RadioButton9_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton9.CheckedChanged
+        FrequencyUpdate(5000)
+    End Sub
+
+    Private Sub RadioButton6_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton6.CheckedChanged
+        FrequencyUpdate(20000)
+    End Sub
+
+    Private Sub RadioButton7_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton7.CheckedChanged
+        FrequencyUpdate(50000)
+    End Sub
+
+    Private Sub CheckedListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CheckedListBox1.SelectedIndexChanged
+
+    End Sub
+
+    Dim b As Byte() = {&HF0, &H7F}
+
+    Private Sub Button4_Click_1(sender As Object, e As EventArgs) Handles Button4.Click
+
+
+
+        SerialPort1.Write(b, 0, 2)
+
+    End Sub
+
+    Private Sub Button5_Click_2(sender As Object, e As EventArgs) Handles Button5.Click
+        SerialPort1.Open()
+    End Sub
+
+
+
+
+
+
+
+    Private Sub PSU_READ_V_1_TextChanged_1(sender As Object, e As EventArgs) Handles PSU_READ_V_1.DoubleClick
+        ReadPSUValue_1()
+        My.Computer.Clipboard.SetText(PSU_READ_V_1.Text)
+    End Sub
+
+    Private Sub PSU_READ_V_2_TextChanged_1(sender As Object, e As EventArgs) Handles PSU_READ_V_2.DoubleClick
+        ReadPSUValue_2()
+        My.Computer.Clipboard.SetText(PSU_READ_V_2.Text)
+    End Sub
+
+    Private Sub PSU_READ_V_3_TextChanged_1(sender As Object, e As EventArgs) Handles PSU_READ_V_3.DoubleClick
+        ReadPSUValue_3()
+        My.Computer.Clipboard.SetText(PSU_READ_V_3.Text)
+    End Sub
+    Private Sub PSU_READ_V_4_TextChanged_1(sender As Object, e As EventArgs) Handles PSU_READ_V_4.DoubleClick
+        ReadPSUValue_4()
+        My.Computer.Clipboard.SetText(PSU_READ_V_4.Text)
+    End Sub
+
+    Private Sub PSU_READ_I_1_TextChanged(sender As Object, e As EventArgs) Handles PSU_READ_I_1.DoubleClick
+        ReadPSUValue_1()
+        My.Computer.Clipboard.SetText(PSU_READ_I_1.Text)
+    End Sub
+
+
+    Private Sub PSU_READ_I_2_TextChanged(sender As Object, e As EventArgs) Handles PSU_READ_I_2.DoubleClick
+        ReadPSUValue_2()
+        My.Computer.Clipboard.SetText(PSU_READ_I_2.Text)
+    End Sub
+
+
+    Private Sub PSU_READ_I_3_TextChanged(sender As Object, e As EventArgs) Handles PSU_READ_I_3.DoubleClick
+        ReadPSUValue_3()
+        My.Computer.Clipboard.SetText(PSU_READ_I_3.Text)
+    End Sub
+
+
+    Private Sub PSU_READ_I_4_TextChanged(sender As Object, e As EventArgs) Handles PSU_READ_I_4.DoubleClick
+        ReadPSUValue_4()
+        My.Computer.Clipboard.SetText(PSU_READ_I_4.Text)
+    End Sub
+
+    Private Sub DMM_Value_1_TextChanged_1(sender As Object, e As EventArgs) Handles DMM_Value_1.DoubleClick
+        DMM_Read_1()
+        My.Computer.Clipboard.SetText(DMM_Value_1.Text)
+    End Sub
+
+    Private Sub DMM_Value_2_TextChanged_1(sender As Object, e As EventArgs) Handles DMM_Value_2.DoubleClick
+        DMM_Read_2()
+        My.Computer.Clipboard.SetText(DMM_Value_2.Text)
+    End Sub
+
+    Private Sub DMM_Value_3_TextChanged_1(sender As Object, e As EventArgs) Handles DMM_Value_3.DoubleClick
+        DMM_Read_3()
+        My.Computer.Clipboard.SetText(DMM_Value_3.Text)
+    End Sub
+
+    Private Sub DMM_Value_4_TextChanged_1(sender As Object, e As EventArgs) Handles DMM_Value_4.DoubleClick
+        DMM_Read_4()
+        My.Computer.Clipboard.SetText(DMM_Value_4.Text)
+    End Sub
+
+
+    Private Sub PSU_READ_V_1_TextChanged(sender As Object, e As EventArgs) Handles PSU_READ_V_1.TextChanged
+
+    End Sub
+
+    Private Sub DMM_Value_1_TextChanged(sender As Object, e As EventArgs) Handles DMM_Value_1.TextChanged
+
+    End Sub
+
+    Private Sub DMM_Name_1_TextChanged(sender As Object, e As EventArgs) Handles DMM_Name_1.TextChanged
+
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+
+
+
+        CollectData()
+
+
+
+
+    End Sub
+
+
+    Public Sub CollectData()
+
+        DataCollectionTable.Rows.Add(DateAndTime.DateString & " " & DateAndTime.TimeOfDay, Measurement.Text, Sine_freq.Text, SGamp.Text,
+                                     DMM_Value_1.Text, DMM_dbm_1.Text,
+                                     DMM_Value_2.Text, DMM_dbm_2.Text,
+                                     DMM_Value_3.Text, DMM_dbm_3.Text,
+                                     DMM_Value_4.Text, DMM_dbm_4.Text,
+                                      PSU_READ_V_1.Text, PSU_READ_V_2.Text, PSU_READ_V_3.Text, PSU_READ_V_4.Text,
+                                     PSU_READ_I_1.Text, PSU_READ_I_2.Text, PSU_READ_I_3.Text, PSU_READ_I_4.Text,
+                                          SCOPE_Vpp_1.Text, SCOPE_Vrms_1.Text,
+    SCOPE_dBm_1.Text, SCOPE_FREQ_1.Text,
+          SCOPE_Vpp_2.Text, SCOPE_Vrms_2.Text,
+    SCOPE_dBm_2.Text, SCOPE_FREQ_2.Text,
+        SCOPE_dBm_diff.Text, SCOPE_Phase.Text)
+
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        CreatTable()
+    End Sub
+
+
+    Public Sub CreatTable()
+        'Creat Table Colums
+
+        DataCollectionTable.Reset()
+
+        DataCollectionTable.Columns.Add("DATE and TIME")
+
+        DataCollectionTable.Columns.Add(Measurement.Text)
+
+        DataCollectionTable.Columns.Add(Signal_Type.SelectedItem.ToString & "(HZ)", GetType(String))
+        DataCollectionTable.Columns.Add("Ampl " & Signal_Amp_unit.SelectedItem.ToString, GetType(String))
+
+        DataCollectionTable.Columns.Add(DMMLabel1.Text & " " & DMM1Mode, GetType(String))
+        DataCollectionTable.Columns.Add(DMMLabel1.Text & " " & " (dBm)", GetType(String))
+
+        DataCollectionTable.Columns.Add(DMMLabel2.Text & " " & DMM2Mode, GetType(String))
+        DataCollectionTable.Columns.Add(DMMLabel2.Text & " " & " (dBm)", GetType(String))
+
+        DataCollectionTable.Columns.Add(DMMLabel3.Text & " " & DMM3Mode, GetType(String))
+        DataCollectionTable.Columns.Add(DMMLabel3.Text & " " & " (dBm)", GetType(String))
+
+        DataCollectionTable.Columns.Add(DMMLabel4.Text & " " & DMM4Mode, GetType(String))
+        DataCollectionTable.Columns.Add(DMMLabel4.Text & " " & " (dBm)", GetType(String))
+
+        DataCollectionTable.Columns.Add(PSULabel1.Text & " (V)", GetType(String))
+        DataCollectionTable.Columns.Add(PSULabel2.Text & " (V)", GetType(String))
+        DataCollectionTable.Columns.Add(PSULabel3.Text & " (V)", GetType(String))
+        DataCollectionTable.Columns.Add(PSULabel4.Text & " (V)", GetType(String))
+
+        DataCollectionTable.Columns.Add(PSULabel1.Text & " (A)", GetType(String))
+        DataCollectionTable.Columns.Add(PSULabel2.Text & " (A)", GetType(String))
+        DataCollectionTable.Columns.Add(PSULabel3.Text & " (A)", GetType(String))
+        DataCollectionTable.Columns.Add(PSULabel4.Text & " (A)", GetType(String))
+
+        DataCollectionTable.Columns.Add("Scope 1 (Vpp)", GetType(String))
+        DataCollectionTable.Columns.Add("Scope 1 (Vrms)", GetType(String))
+        DataCollectionTable.Columns.Add("Scope 1 (dBm)", GetType(String))
+        DataCollectionTable.Columns.Add("Scope 1 (Hz)", GetType(String))
+
+        DataCollectionTable.Columns.Add("Scope 2 (Vpp)", GetType(String))
+        DataCollectionTable.Columns.Add("Scope 2 (Vrms)", GetType(String))
+        DataCollectionTable.Columns.Add("Scope 2 (dBm)", GetType(String))
+        DataCollectionTable.Columns.Add("Scope 2 (Hz)", GetType(String))
+
+        DataCollectionTable.Columns.Add("SCOPE dBm diff 1-2", GetType(String))
+        DataCollectionTable.Columns.Add("SCOPE Phase diff 1-2", GetType(String))
+
+        DataGridView.DataSource = DataCollectionTable
+    End Sub
+
+    Private Sub Connecttoscope_Click(sender As Object, e As EventArgs) Handles Connecttoscope.Click
+        RIGOL.IO = ioMgr.Open("TCPIP0::192.168.11.53::INSTR")    ' 10 is the instr. address 
+        RIGOL.WriteString(":RUN")
+
+    End Sub
+End Class
+

@@ -1,0 +1,565 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{01C152F7-7B2D-4B30-885E-E9D934A4A538}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>APK_Bench_Software.ESA_L1500A</StartupObject>
+    <RootNamespace>APK_Bench_Software</RootNamespace>
+    <AssemblyName>APK-Software V5.4.3</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>C:\Users\Anthony Kuzub\source\bench software\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>APK-Software V5.4.3.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>APK-Software V5.4.3.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>E330E069334A4A4369D15C117FD3340C78417BD7</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>APK-Software V3.2.1_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="APK-Software V3.9.5, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>obj\Debug\APK-Software V3.9.5.exe</HintPath>
+    </Reference>
+    <Reference Include="Ivi.Visa, Version=5.8.0.0, Culture=neutral, PublicKeyToken=a128c98f1d7717c1, processorArchitecture=MSIL" />
+    <Reference Include="Keysight.Visa, Version=18.1.0.0, Culture=neutral, PublicKeyToken=7a01cdb2a9131f73, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.84.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL" />
+    <Reference Include="System.Data.SqlXml" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Log" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APK User Controls\Channel Strip.Designer.vb">
+      <DependentUpon>Channel Strip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="APK User Controls\Channel Strip.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="APK User Controls\DataOverTime.Designer.vb">
+      <DependentUpon>DataOverTime.vb</DependentUpon>
+    </Compile>
+    <Compile Include="APK User Controls\DataOverTime.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="APK User Controls\Device Status\Device Status and Config.Designer.vb">
+      <DependentUpon>Device Status and Config.vb</DependentUpon>
+    </Compile>
+    <Compile Include="APK User Controls\Device Status\Device Status and Config.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="APK User Controls\Device Status\Device_Selection.Designer.vb">
+      <DependentUpon>Device_Selection.vb</DependentUpon>
+    </Compile>
+    <Compile Include="APK User Controls\Device Status\Device_Selection.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="APK User Controls\Vertical_Meter.Designer.vb">
+      <DependentUpon>Vertical_Meter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="APK User Controls\Vertical_Meter.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Instruments\GPIB\3235 Switcher\Router.Designer.vb">
+      <DependentUpon>Router.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Instruments\GPIB\3235 Switcher\Router.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Instruments\GPIB\DC Load\DCLoadForm.Designer.vb" />
+    <Compile Include="Instruments\GPIB\DC Load\DCLoadForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instruments\GPIB\DMM\DMMControl.Designer.vb">
+      <DependentUpon>DMMControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Instruments\GPIB\DMM\DMMControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Instruments\GPIB\SignalGen\SigGen-Agilent33220A_V2.vb" />
+    <Compile Include="Instruments\FindDevices.vb" />
+    <Compile Include="Instruments\GPIB\SignalGen\SoundSource.Designer.vb">
+      <DependentUpon>SoundSource.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Instruments\GPIB\SignalGen\SoundSource.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="My Project\Settings1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\APK-Bench-Router_20191207.Designer.vb">
+      <DependentUpon>APK-Bench-Router_20191207.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\APK-Bench-Router_20191207.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInterface\APKTestBench_20191207.Designer.vb">
+      <DependentUpon>APKTestBench_20191207.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\APKTestBench_20191207.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instruments\GPIB\HP Scope\XXX - Scope_ConfigureScope.vb" />
+    <Compile Include="Instruments\GPIB\HP Scope\Scope_Channel_Display.Designer.vb">
+      <DependentUpon>Scope_Channel_Display.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Instruments\GPIB\HP Scope\Scope_Channel_Display.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Instruments\GPIB\PSU Frame\PSU_Module.Designer.vb">
+      <DependentUpon>PSU_Module.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Instruments\GPIB\PSU Frame\PSU_Module.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\CSV.vb" />
+    <Compile Include="Utilities\MDP.Designer.vb">
+      <DependentUpon>MDP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\MDP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilities\Panner.Designer.vb">
+      <DependentUpon>Panner.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Panner.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserInterface\SurroundPanner.vb" />
+    <Compile Include="Utilities\AES70\AES70_tree.Designer.vb">
+      <DependentUpon>AES70_tree.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\AES70\AES70_tree.vb" />
+    <Compile Include="Utilities\Command_List.vb" />
+    <Compile Include="Utilities\Command_List_Form.Designer.vb">
+      <DependentUpon>Command_List_Form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Command_List_Form.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="APK User Controls\Horizontal Meter\Horizontal Meter With Text2.Designer.vb">
+      <DependentUpon>Horizontal Meter With Text2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="APK User Controls\Horizontal Meter\Horizontal Meter With Text2.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="APK User Controls\Time Graph\TimeGraph.Designer.vb">
+      <DependentUpon>TimeGraph.vb</DependentUpon>
+    </Compile>
+    <Compile Include="APK User Controls\Time Graph\TimeGraph.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Database\databaseExplore.Designer.vb">
+      <DependentUpon>databaseExplore.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Database\databaseExplore.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Database\ExcelExtensions.vb" />
+    <Compile Include="Instruments\GPIB\3235 Switcher\Relay_Driver.Designer.vb">
+      <DependentUpon>Relay_Driver.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Instruments\GPIB\3235 Switcher\Relay_Driver.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instruments\GPIB\3235 Switcher\Switcher_HP3235.vb" />
+    <Compile Include="Instruments\GPIB\DeviceGeneric.vb" />
+    <Compile Include="Instruments\GPIB\HP Scope\XXX - AgilentScope_V4.vb" />
+    <Compile Include="Instruments\GPIB\HP Scope\XXX-Agilent_Scope_Form_V4.Designer.vb">
+      <DependentUpon>XXX-Agilent_Scope_Form_V4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Instruments\GPIB\HP Scope\XXX-Agilent_Scope_Form_V4.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instruments\GPIB\PSU Frame\XXX - PSU-Frame.Designer.vb">
+      <DependentUpon>XXX - PSU-Frame.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Instruments\GPIB\PSU Frame\XXX - PSU-Frame.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instruments\GPIB\PSU Frame\PSU_Frame_Functions.vb" />
+    <Compile Include="Instruments\GPIB\Agilent_Distortion_Form_v1.Designer.vb">
+      <DependentUpon>Agilent_Distortion_Form_v1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Instruments\GPIB\Agilent_Distortion_Form_v1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instruments\GPIB\Spectrum Analyzer\SpectrumAnalyzer v3.Designer.vb">
+      <DependentUpon>SpectrumAnalyzer v3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Instruments\GPIB\Spectrum Analyzer\SpectrumAnalyzer v3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instruments\GPIB\Spectrum Analyzer\Sprectrum AnalyzerSetup.vb" />
+    <Compile Include="Instruments\RIGOL\RigolDS1054_V2.vb" />
+    <Compile Include="APK User Controls\Horizontal Meter\MeterTest.Designer.vb">
+      <DependentUpon>MeterTest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="APK User Controls\Horizontal Meter\MeterTest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Instruments\RIGOL\RIGOLSCOPE_FORM_2.Designer.vb">
+      <DependentUpon>RIGOLSCOPE_FORM_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Instruments\RIGOL\RIGOLSCOPE_FORM_2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instruments\RIGOL\RIGOLSCOPE_FORM_1.Designer.vb">
+      <DependentUpon>RIGOLSCOPE_FORM_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Instruments\RIGOL\RIGOLSCOPE_FORM_1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instruments\RIGOL\RIGOLSCOPE_FORM_4.Designer.vb">
+      <DependentUpon>RIGOLSCOPE_FORM_4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Instruments\RIGOL\RIGOLSCOPE_FORM_4.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instruments\RIGOL\RIGOL_FFT_FORM.Designer.vb">
+      <DependentUpon>RIGOL_FFT_FORM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Instruments\RIGOL\RIGOL_FFT_FORM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instruments\RIGOL\Rigol_FFT_v2.vb" />
+    <Compile Include="Instruments\RIGOL\RIGOLSCOPE_FORM_3.Designer.vb">
+      <DependentUpon>RIGOLSCOPE_FORM_3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Instruments\RIGOL\RIGOLSCOPE_FORM_3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilities\ConnectionManagement.vb" />
+    <Compile Include="Utilities\CurrentConfig.Designer.vb">
+      <DependentUpon>CurrentConfig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\CurrentConfig.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utilities\F-SWEEP.Designer.vb" />
+    <Compile Include="Utilities\Freq_Chart_2.Designer.vb">
+      <DependentUpon>Freq_Chart_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Freq_Chart_2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilities\SDP.vb" />
+    <Compile Include="UserInterface\SequenceTimer.Designer.vb">
+      <DependentUpon>SequenceTimer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\SequenceTimer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilities\Utilities.vb" />
+    <Compile Include="Utilities\WhatIsNear.Designer.vb">
+      <DependentUpon>WhatIsNear.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\WhatIsNear.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Yo Control\YoControl.vb" />
+    <Compile Include="Yo Control\YoTalkback.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="APK User Controls\Channel Strip.resx">
+      <DependentUpon>Channel Strip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APK User Controls\DataOverTime.resx">
+      <DependentUpon>DataOverTime.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APK User Controls\Device Status\Device Status and Config.resx">
+      <DependentUpon>Device Status and Config.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APK User Controls\Device Status\Device_Selection.resx">
+      <DependentUpon>Device_Selection.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APK User Controls\Vertical_Meter.resx">
+      <DependentUpon>Vertical_Meter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instruments\GPIB\3235 Switcher\Router.resx">
+      <DependentUpon>Router.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instruments\GPIB\DC Load\DCLoadForm.resx" />
+    <EmbeddedResource Include="Instruments\GPIB\DMM\DMMControl.resx">
+      <DependentUpon>DMMControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instruments\GPIB\SignalGen\SoundSource.resx">
+      <DependentUpon>SoundSource.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInterface\APK-Bench-Router_20191207.resx">
+      <DependentUpon>APK-Bench-Router_20191207.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInterface\APKTestBench_20191207.resx">
+      <DependentUpon>APKTestBench_20191207.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instruments\GPIB\HP Scope\Scope_Channel_Display.resx">
+      <DependentUpon>Scope_Channel_Display.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instruments\GPIB\PSU Frame\PSU_Module.resx">
+      <DependentUpon>PSU_Module.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilities\MDP.resx">
+      <DependentUpon>MDP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilities\Panner.resx">
+      <DependentUpon>Panner.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilities\AES70\AES70_tree.resx">
+      <DependentUpon>AES70_tree.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilities\Command_List_Form.resx">
+      <DependentUpon>Command_List_Form.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APK User Controls\Horizontal Meter\Horizontal Meter With Text2.resx">
+      <DependentUpon>Horizontal Meter With Text2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APK User Controls\Time Graph\TimeGraph.resx">
+      <DependentUpon>TimeGraph.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Database\databaseExplore.resx">
+      <DependentUpon>databaseExplore.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instruments\GPIB\3235 Switcher\Relay_Driver.resx">
+      <DependentUpon>Relay_Driver.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instruments\GPIB\HP Scope\XXX-Agilent_Scope_Form_V4.resx">
+      <DependentUpon>XXX-Agilent_Scope_Form_V4.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instruments\GPIB\PSU Frame\XXX - PSU-Frame.resx">
+      <DependentUpon>XXX - PSU-Frame.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instruments\GPIB\Agilent_Distortion_Form_v1.resx">
+      <DependentUpon>Agilent_Distortion_Form_v1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instruments\GPIB\Spectrum Analyzer\SpectrumAnalyzer v3.resx">
+      <DependentUpon>SpectrumAnalyzer v3.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APK User Controls\Horizontal Meter\MeterTest.resx">
+      <DependentUpon>MeterTest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instruments\RIGOL\RIGOLSCOPE_FORM_2.resx">
+      <DependentUpon>RIGOLSCOPE_FORM_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instruments\RIGOL\RIGOLSCOPE_FORM_1.resx">
+      <DependentUpon>RIGOLSCOPE_FORM_1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instruments\RIGOL\RIGOLSCOPE_FORM_4.resx">
+      <DependentUpon>RIGOLSCOPE_FORM_4.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instruments\RIGOL\RIGOL_FFT_FORM.resx">
+      <DependentUpon>RIGOL_FFT_FORM.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instruments\RIGOL\RIGOLSCOPE_FORM_3.resx">
+      <DependentUpon>RIGOLSCOPE_FORM_3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilities\CurrentConfig.resx">
+      <DependentUpon>CurrentConfig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilities\Freq_Chart_2.resx">
+      <DependentUpon>Freq_Chart_2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInterface\SequenceTimer.resx">
+      <DependentUpon>SequenceTimer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilities\WhatIsNear.resx">
+      <DependentUpon>WhatIsNear.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\DataSources\BenchInstrumentItem.datasource" />
+    <None Include="My Project\DataSources\TimeGraph.datasource" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings1.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VisaComLib">
+      <Guid>{DB8CBF00-D6D3-11D4-AA51-00A024EE30BD}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>2</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Utilities\Jamie-Ashforth-19001ss.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\33220a.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\11005A.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Measurements\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="APK User Controls\XMLFile1.xml" />
+    <None Include="images\moon.jpg" />
+    <Content Include="Utilities\AES70\AES70_ClassMembers.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,830 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class Form1
+    Inherits System.Windows.Forms.Form
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Dist_measure_Voltage = New System.Windows.Forms.TextBox()
+        Me.Dist_measure_DSTN = New System.Windows.Forms.TextBox()
+        Me.Dist_measure_SINAD = New System.Windows.Forms.TextBox()
+        Me.Dist_Amp = New System.Windows.Forms.TextBox()
+        Me.DistortionChange = New System.Windows.Forms.Button()
+        Me.Dist_freq = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.DutyCycle = New System.Windows.Forms.TrackBar()
+        Me.Signal_Type = New System.Windows.Forms.ComboBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Signal_Amp_unit = New System.Windows.Forms.ComboBox()
+        Me.Sine_amp = New System.Windows.Forms.TextBox()
+        Me.Sine_freq = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.DMM_dbm_4 = New System.Windows.Forms.TextBox()
+        Me.DMM_Value_4 = New System.Windows.Forms.TextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.DMM_function_4 = New System.Windows.Forms.ComboBox()
+        Me.DMM_dbm_3 = New System.Windows.Forms.TextBox()
+        Me.DMM_Value_3 = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.DMM_function_3 = New System.Windows.Forms.ComboBox()
+        Me.DMM_dbm_2 = New System.Windows.Forms.TextBox()
+        Me.DMM_Value_2 = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.DMM_function_2 = New System.Windows.Forms.ComboBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.dBm_ref = New System.Windows.Forms.TextBox()
+        Me.DMM_dbm_1 = New System.Windows.Forms.TextBox()
+        Me.DMM_Value_1 = New System.Windows.Forms.TextBox()
+        Me.READ_DMM = New System.Windows.Forms.Button()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.DMM_function_1 = New System.Windows.Forms.ComboBox()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.SignalGen_gpib = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.SignalGen_name = New System.Windows.Forms.TextBox()
+        Me.PSU_gpib = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.PSU_name = New System.Windows.Forms.TextBox()
+        Me.Ocilliscope_gpib = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Ocilliscope_name = New System.Windows.Forms.TextBox()
+        Me.AudioAnalyzer_gpib = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.AudioAnalyzer_name = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.gpibAddress = New System.Windows.Forms.TextBox()
+        Me.DMM_gpib_4 = New System.Windows.Forms.TextBox()
+        Me.DMM_gpib_3 = New System.Windows.Forms.TextBox()
+        Me.DMM_gpib_2 = New System.Windows.Forms.TextBox()
+        Me.DMM_gpib_1 = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.IPaddress = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.DMM_Name_4 = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.DMM_Name_3 = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.DMM_Name_2 = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.DMM_Name_1 = New System.Windows.Forms.TextBox()
+        Me.NameDevices = New System.Windows.Forms.Button()
+        Me.TrackBar1 = New System.Windows.Forms.TrackBar()
+        Me.TabControl1.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        CType(Me.DutyCycle, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage4.SuspendLayout()
+        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Controls.Add(Me.TabPage3)
+        Me.TabControl1.Controls.Add(Me.TabPage4)
+        Me.TabControl1.Location = New System.Drawing.Point(12, 12)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(518, 411)
+        Me.TabControl1.TabIndex = 0
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.TrackBar1)
+        Me.TabPage1.Controls.Add(Me.Dist_measure_Voltage)
+        Me.TabPage1.Controls.Add(Me.Dist_measure_DSTN)
+        Me.TabPage1.Controls.Add(Me.Dist_measure_SINAD)
+        Me.TabPage1.Controls.Add(Me.Dist_Amp)
+        Me.TabPage1.Controls.Add(Me.DistortionChange)
+        Me.TabPage1.Controls.Add(Me.Dist_freq)
+        Me.TabPage1.Controls.Add(Me.Label17)
+        Me.TabPage1.Controls.Add(Me.DutyCycle)
+        Me.TabPage1.Controls.Add(Me.Signal_Type)
+        Me.TabPage1.Controls.Add(Me.Button1)
+        Me.TabPage1.Controls.Add(Me.Signal_Amp_unit)
+        Me.TabPage1.Controls.Add(Me.Sine_amp)
+        Me.TabPage1.Controls.Add(Me.Sine_freq)
+        Me.TabPage1.Controls.Add(Me.Label16)
+        Me.TabPage1.Controls.Add(Me.DMM_dbm_4)
+        Me.TabPage1.Controls.Add(Me.DMM_Value_4)
+        Me.TabPage1.Controls.Add(Me.Label15)
+        Me.TabPage1.Controls.Add(Me.DMM_function_4)
+        Me.TabPage1.Controls.Add(Me.DMM_dbm_3)
+        Me.TabPage1.Controls.Add(Me.DMM_Value_3)
+        Me.TabPage1.Controls.Add(Me.Label14)
+        Me.TabPage1.Controls.Add(Me.DMM_function_3)
+        Me.TabPage1.Controls.Add(Me.DMM_dbm_2)
+        Me.TabPage1.Controls.Add(Me.DMM_Value_2)
+        Me.TabPage1.Controls.Add(Me.Label13)
+        Me.TabPage1.Controls.Add(Me.DMM_function_2)
+        Me.TabPage1.Controls.Add(Me.Label12)
+        Me.TabPage1.Controls.Add(Me.dBm_ref)
+        Me.TabPage1.Controls.Add(Me.DMM_dbm_1)
+        Me.TabPage1.Controls.Add(Me.DMM_Value_1)
+        Me.TabPage1.Controls.Add(Me.READ_DMM)
+        Me.TabPage1.Controls.Add(Me.Label11)
+        Me.TabPage1.Controls.Add(Me.DMM_function_1)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(510, 385)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "TabPage1"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'Dist_measure_Voltage
+        '
+        Me.Dist_measure_Voltage.Location = New System.Drawing.Point(428, 219)
+        Me.Dist_measure_Voltage.Name = "Dist_measure_Voltage"
+        Me.Dist_measure_Voltage.Size = New System.Drawing.Size(60, 20)
+        Me.Dist_measure_Voltage.TabIndex = 37
+        '
+        'Dist_measure_DSTN
+        '
+        Me.Dist_measure_DSTN.Location = New System.Drawing.Point(362, 219)
+        Me.Dist_measure_DSTN.Name = "Dist_measure_DSTN"
+        Me.Dist_measure_DSTN.Size = New System.Drawing.Size(60, 20)
+        Me.Dist_measure_DSTN.TabIndex = 36
+        '
+        'Dist_measure_SINAD
+        '
+        Me.Dist_measure_SINAD.Location = New System.Drawing.Point(295, 219)
+        Me.Dist_measure_SINAD.Name = "Dist_measure_SINAD"
+        Me.Dist_measure_SINAD.Size = New System.Drawing.Size(60, 20)
+        Me.Dist_measure_SINAD.TabIndex = 35
+        '
+        'Dist_Amp
+        '
+        Me.Dist_Amp.Location = New System.Drawing.Point(147, 219)
+        Me.Dist_Amp.Name = "Dist_Amp"
+        Me.Dist_Amp.Size = New System.Drawing.Size(54, 20)
+        Me.Dist_Amp.TabIndex = 34
+        Me.Dist_Amp.Text = "1"
+        '
+        'DistortionChange
+        '
+        Me.DistortionChange.Location = New System.Drawing.Point(207, 219)
+        Me.DistortionChange.Name = "DistortionChange"
+        Me.DistortionChange.Size = New System.Drawing.Size(75, 23)
+        Me.DistortionChange.TabIndex = 33
+        Me.DistortionChange.Text = "Distortion"
+        Me.DistortionChange.UseVisualStyleBackColor = True
+        '
+        'Dist_freq
+        '
+        Me.Dist_freq.Location = New System.Drawing.Point(86, 219)
+        Me.Dist_freq.Name = "Dist_freq"
+        Me.Dist_freq.Size = New System.Drawing.Size(55, 20)
+        Me.Dist_freq.TabIndex = 32
+        Me.Dist_freq.Text = "1000"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(21, 219)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(51, 13)
+        Me.Label17.TabIndex = 31
+        Me.Label17.Text = "Distortion"
+        '
+        'DutyCycle
+        '
+        Me.DutyCycle.BackColor = System.Drawing.SystemColors.Window
+        Me.DutyCycle.Location = New System.Drawing.Point(86, 333)
+        Me.DutyCycle.Maximum = 100
+        Me.DutyCycle.Name = "DutyCycle"
+        Me.DutyCycle.Size = New System.Drawing.Size(256, 45)
+        Me.DutyCycle.TabIndex = 30
+        Me.DutyCycle.Value = 50
+        '
+        'Signal_Type
+        '
+        Me.Signal_Type.FormattingEnabled = True
+        Me.Signal_Type.Items.AddRange(New Object() {"SIN", "SQU", "RAMP", "PULS", "NOISE"})
+        Me.Signal_Type.Location = New System.Drawing.Point(150, 266)
+        Me.Signal_Type.Name = "Signal_Type"
+        Me.Signal_Type.Size = New System.Drawing.Size(70, 21)
+        Me.Signal_Type.TabIndex = 29
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(359, 274)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 28
+        Me.Button1.Text = "ON"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Signal_Amp_unit
+        '
+        Me.Signal_Amp_unit.FormattingEnabled = True
+        Me.Signal_Amp_unit.Items.AddRange(New Object() {"Vpp", "Vrms", "dBm"})
+        Me.Signal_Amp_unit.Location = New System.Drawing.Point(295, 266)
+        Me.Signal_Amp_unit.Name = "Signal_Amp_unit"
+        Me.Signal_Amp_unit.Size = New System.Drawing.Size(47, 21)
+        Me.Signal_Amp_unit.TabIndex = 27
+        '
+        'Sine_amp
+        '
+        Me.Sine_amp.Location = New System.Drawing.Point(235, 266)
+        Me.Sine_amp.Name = "Sine_amp"
+        Me.Sine_amp.Size = New System.Drawing.Size(54, 20)
+        Me.Sine_amp.TabIndex = 26
+        Me.Sine_amp.Text = "1"
+        '
+        'Sine_freq
+        '
+        Me.Sine_freq.Location = New System.Drawing.Point(86, 267)
+        Me.Sine_freq.Name = "Sine_freq"
+        Me.Sine_freq.Size = New System.Drawing.Size(55, 20)
+        Me.Sine_freq.TabIndex = 25
+        Me.Sine_freq.Text = "1000"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(21, 269)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(59, 13)
+        Me.Label16.TabIndex = 22
+        Me.Label16.Text = "Signal Gen"
+        '
+        'DMM_dbm_4
+        '
+        Me.DMM_dbm_4.Location = New System.Drawing.Point(378, 135)
+        Me.DMM_dbm_4.Name = "DMM_dbm_4"
+        Me.DMM_dbm_4.Size = New System.Drawing.Size(100, 20)
+        Me.DMM_dbm_4.TabIndex = 20
+        '
+        'DMM_Value_4
+        '
+        Me.DMM_Value_4.Location = New System.Drawing.Point(245, 135)
+        Me.DMM_Value_4.Name = "DMM_Value_4"
+        Me.DMM_Value_4.Size = New System.Drawing.Size(100, 20)
+        Me.DMM_Value_4.TabIndex = 19
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(18, 138)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(42, 13)
+        Me.Label15.TabIndex = 18
+        Me.Label15.Text = "DMM 4"
+        '
+        'DMM_function_4
+        '
+        Me.DMM_function_4.FormattingEnabled = True
+        Me.DMM_function_4.Items.AddRange(New Object() {"V DC", "I DC", "V AC", "I AC", "R 2W", "R 4W", "Diode", "Capacitance", "Freq", "Period", "Continuity"})
+        Me.DMM_function_4.Location = New System.Drawing.Point(86, 135)
+        Me.DMM_function_4.Name = "DMM_function_4"
+        Me.DMM_function_4.Size = New System.Drawing.Size(121, 21)
+        Me.DMM_function_4.TabIndex = 17
+        Me.DMM_function_4.Text = "Function"
+        '
+        'DMM_dbm_3
+        '
+        Me.DMM_dbm_3.Location = New System.Drawing.Point(378, 108)
+        Me.DMM_dbm_3.Name = "DMM_dbm_3"
+        Me.DMM_dbm_3.Size = New System.Drawing.Size(100, 20)
+        Me.DMM_dbm_3.TabIndex = 16
+        '
+        'DMM_Value_3
+        '
+        Me.DMM_Value_3.Location = New System.Drawing.Point(245, 108)
+        Me.DMM_Value_3.Name = "DMM_Value_3"
+        Me.DMM_Value_3.Size = New System.Drawing.Size(100, 20)
+        Me.DMM_Value_3.TabIndex = 15
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(18, 111)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(42, 13)
+        Me.Label14.TabIndex = 14
+        Me.Label14.Text = "DMM 3"
+        '
+        'DMM_function_3
+        '
+        Me.DMM_function_3.FormattingEnabled = True
+        Me.DMM_function_3.Items.AddRange(New Object() {"V DC", "I DC", "V AC", "I AC", "R 2W", "R 4W", "Diode", "Capacitance", "Freq", "Period", "Continuity"})
+        Me.DMM_function_3.Location = New System.Drawing.Point(86, 108)
+        Me.DMM_function_3.Name = "DMM_function_3"
+        Me.DMM_function_3.Size = New System.Drawing.Size(121, 21)
+        Me.DMM_function_3.TabIndex = 13
+        Me.DMM_function_3.Text = "Function"
+        '
+        'DMM_dbm_2
+        '
+        Me.DMM_dbm_2.Location = New System.Drawing.Point(378, 81)
+        Me.DMM_dbm_2.Name = "DMM_dbm_2"
+        Me.DMM_dbm_2.Size = New System.Drawing.Size(100, 20)
+        Me.DMM_dbm_2.TabIndex = 12
+        '
+        'DMM_Value_2
+        '
+        Me.DMM_Value_2.Location = New System.Drawing.Point(245, 81)
+        Me.DMM_Value_2.Name = "DMM_Value_2"
+        Me.DMM_Value_2.Size = New System.Drawing.Size(100, 20)
+        Me.DMM_Value_2.TabIndex = 11
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(18, 84)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(42, 13)
+        Me.Label13.TabIndex = 10
+        Me.Label13.Text = "DMM 2"
+        '
+        'DMM_function_2
+        '
+        Me.DMM_function_2.FormattingEnabled = True
+        Me.DMM_function_2.Items.AddRange(New Object() {"V DC", "I DC", "V AC", "I AC", "R 2W", "R 4W", "Diode", "Capacitance", "Freq", "Period", "Continuity"})
+        Me.DMM_function_2.Location = New System.Drawing.Point(86, 81)
+        Me.DMM_function_2.Name = "DMM_function_2"
+        Me.DMM_function_2.Size = New System.Drawing.Size(121, 21)
+        Me.DMM_function_2.TabIndex = 9
+        Me.DMM_function_2.Text = "Function"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(411, 31)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(62, 13)
+        Me.Label12.TabIndex = 8
+        Me.Label12.Text = "dBm ref imp"
+        '
+        'dBm_ref
+        '
+        Me.dBm_ref.Location = New System.Drawing.Point(378, 28)
+        Me.dBm_ref.Name = "dBm_ref"
+        Me.dBm_ref.Size = New System.Drawing.Size(32, 20)
+        Me.dBm_ref.TabIndex = 7
+        Me.dBm_ref.Text = "50"
+        '
+        'DMM_dbm_1
+        '
+        Me.DMM_dbm_1.Location = New System.Drawing.Point(378, 54)
+        Me.DMM_dbm_1.Name = "DMM_dbm_1"
+        Me.DMM_dbm_1.Size = New System.Drawing.Size(100, 20)
+        Me.DMM_dbm_1.TabIndex = 6
+        '
+        'DMM_Value_1
+        '
+        Me.DMM_Value_1.Location = New System.Drawing.Point(245, 54)
+        Me.DMM_Value_1.Name = "DMM_Value_1"
+        Me.DMM_Value_1.Size = New System.Drawing.Size(100, 20)
+        Me.DMM_Value_1.TabIndex = 4
+        '
+        'READ_DMM
+        '
+        Me.READ_DMM.Location = New System.Drawing.Point(378, 161)
+        Me.READ_DMM.Name = "READ_DMM"
+        Me.READ_DMM.Size = New System.Drawing.Size(100, 23)
+        Me.READ_DMM.TabIndex = 3
+        Me.READ_DMM.Text = "READ DMM"
+        Me.READ_DMM.UseVisualStyleBackColor = True
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(18, 57)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(42, 13)
+        Me.Label11.TabIndex = 2
+        Me.Label11.Text = "DMM 1"
+        '
+        'DMM_function_1
+        '
+        Me.DMM_function_1.FormattingEnabled = True
+        Me.DMM_function_1.Items.AddRange(New Object() {"V DC", "I DC", "V AC", "I AC", "R 2W", "R 4W", "Diode", "Capacitance", "Freq", "Period", "Continuity"})
+        Me.DMM_function_1.Location = New System.Drawing.Point(86, 54)
+        Me.DMM_function_1.Name = "DMM_function_1"
+        Me.DMM_function_1.Size = New System.Drawing.Size(121, 21)
+        Me.DMM_function_1.TabIndex = 1
+        Me.DMM_function_1.Text = "Function"
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(510, 385)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "TabPage2"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'TabPage3
+        '
+        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(510, 385)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "TabPage3"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'TabPage4
+        '
+        Me.TabPage4.Controls.Add(Me.SignalGen_gpib)
+        Me.TabPage4.Controls.Add(Me.Label10)
+        Me.TabPage4.Controls.Add(Me.SignalGen_name)
+        Me.TabPage4.Controls.Add(Me.PSU_gpib)
+        Me.TabPage4.Controls.Add(Me.Label9)
+        Me.TabPage4.Controls.Add(Me.PSU_name)
+        Me.TabPage4.Controls.Add(Me.Ocilliscope_gpib)
+        Me.TabPage4.Controls.Add(Me.Label8)
+        Me.TabPage4.Controls.Add(Me.Ocilliscope_name)
+        Me.TabPage4.Controls.Add(Me.AudioAnalyzer_gpib)
+        Me.TabPage4.Controls.Add(Me.Label7)
+        Me.TabPage4.Controls.Add(Me.AudioAnalyzer_name)
+        Me.TabPage4.Controls.Add(Me.Label6)
+        Me.TabPage4.Controls.Add(Me.gpibAddress)
+        Me.TabPage4.Controls.Add(Me.DMM_gpib_4)
+        Me.TabPage4.Controls.Add(Me.DMM_gpib_3)
+        Me.TabPage4.Controls.Add(Me.DMM_gpib_2)
+        Me.TabPage4.Controls.Add(Me.DMM_gpib_1)
+        Me.TabPage4.Controls.Add(Me.Label5)
+        Me.TabPage4.Controls.Add(Me.IPaddress)
+        Me.TabPage4.Controls.Add(Me.Label4)
+        Me.TabPage4.Controls.Add(Me.DMM_Name_4)
+        Me.TabPage4.Controls.Add(Me.Label3)
+        Me.TabPage4.Controls.Add(Me.DMM_Name_3)
+        Me.TabPage4.Controls.Add(Me.Label2)
+        Me.TabPage4.Controls.Add(Me.DMM_Name_2)
+        Me.TabPage4.Controls.Add(Me.Label1)
+        Me.TabPage4.Controls.Add(Me.DMM_Name_1)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage4.Size = New System.Drawing.Size(510, 385)
+        Me.TabPage4.TabIndex = 3
+        Me.TabPage4.Text = "Config"
+        Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'SignalGen_gpib
+        '
+        Me.SignalGen_gpib.Location = New System.Drawing.Point(98, 325)
+        Me.SignalGen_gpib.Name = "SignalGen_gpib"
+        Me.SignalGen_gpib.Size = New System.Drawing.Size(42, 20)
+        Me.SignalGen_gpib.TabIndex = 35
+        Me.SignalGen_gpib.Text = "8"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(14, 328)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(59, 13)
+        Me.Label10.TabIndex = 34
+        Me.Label10.Text = "Signal Gen"
+        '
+        'SignalGen_name
+        '
+        Me.SignalGen_name.Location = New System.Drawing.Point(146, 325)
+        Me.SignalGen_name.Name = "SignalGen_name"
+        Me.SignalGen_name.Size = New System.Drawing.Size(100, 20)
+        Me.SignalGen_name.TabIndex = 33
+        Me.SignalGen_name.Text = "SignalGen"
+        '
+        'PSU_gpib
+        '
+        Me.PSU_gpib.Location = New System.Drawing.Point(98, 285)
+        Me.PSU_gpib.Name = "PSU_gpib"
+        Me.PSU_gpib.Size = New System.Drawing.Size(42, 20)
+        Me.PSU_gpib.TabIndex = 31
+        Me.PSU_gpib.Text = "6"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(14, 288)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(29, 13)
+        Me.Label9.TabIndex = 30
+        Me.Label9.Text = "PSU"
+        '
+        'PSU_name
+        '
+        Me.PSU_name.Location = New System.Drawing.Point(146, 285)
+        Me.PSU_name.Name = "PSU_name"
+        Me.PSU_name.Size = New System.Drawing.Size(100, 20)
+        Me.PSU_name.TabIndex = 29
+        Me.PSU_name.Text = "PSU"
+        '
+        'Ocilliscope_gpib
+        '
+        Me.Ocilliscope_gpib.Location = New System.Drawing.Point(98, 246)
+        Me.Ocilliscope_gpib.Name = "Ocilliscope_gpib"
+        Me.Ocilliscope_gpib.Size = New System.Drawing.Size(42, 20)
+        Me.Ocilliscope_gpib.TabIndex = 27
+        Me.Ocilliscope_gpib.Text = "7"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(14, 249)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(38, 13)
+        Me.Label8.TabIndex = 26
+        Me.Label8.Text = "Scope"
+        '
+        'Ocilliscope_name
+        '
+        Me.Ocilliscope_name.Location = New System.Drawing.Point(146, 246)
+        Me.Ocilliscope_name.Name = "Ocilliscope_name"
+        Me.Ocilliscope_name.Size = New System.Drawing.Size(100, 20)
+        Me.Ocilliscope_name.TabIndex = 25
+        Me.Ocilliscope_name.Text = "Scope"
+        '
+        'AudioAnalyzer_gpib
+        '
+        Me.AudioAnalyzer_gpib.Location = New System.Drawing.Point(98, 205)
+        Me.AudioAnalyzer_gpib.Name = "AudioAnalyzer_gpib"
+        Me.AudioAnalyzer_gpib.Size = New System.Drawing.Size(42, 20)
+        Me.AudioAnalyzer_gpib.TabIndex = 23
+        Me.AudioAnalyzer_gpib.Text = "28"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(14, 208)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(77, 13)
+        Me.Label7.TabIndex = 22
+        Me.Label7.Text = "Audio Analyzer"
+        '
+        'AudioAnalyzer_name
+        '
+        Me.AudioAnalyzer_name.Location = New System.Drawing.Point(146, 205)
+        Me.AudioAnalyzer_name.Name = "AudioAnalyzer_name"
+        Me.AudioAnalyzer_name.Size = New System.Drawing.Size(100, 20)
+        Me.AudioAnalyzer_name.TabIndex = 21
+        Me.AudioAnalyzer_name.Text = "AA"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(24, 48)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(67, 13)
+        Me.Label6.TabIndex = 19
+        Me.Label6.Text = "gpib address"
+        '
+        'gpibAddress
+        '
+        Me.gpibAddress.Location = New System.Drawing.Point(97, 48)
+        Me.gpibAddress.Name = "gpibAddress"
+        Me.gpibAddress.Size = New System.Drawing.Size(100, 20)
+        Me.gpibAddress.TabIndex = 18
+        Me.gpibAddress.Text = "gpib10"
+        '
+        'DMM_gpib_4
+        '
+        Me.DMM_gpib_4.Location = New System.Drawing.Point(98, 159)
+        Me.DMM_gpib_4.Name = "DMM_gpib_4"
+        Me.DMM_gpib_4.Size = New System.Drawing.Size(42, 20)
+        Me.DMM_gpib_4.TabIndex = 17
+        Me.DMM_gpib_4.Text = "4"
+        '
+        'DMM_gpib_3
+        '
+        Me.DMM_gpib_3.Location = New System.Drawing.Point(98, 132)
+        Me.DMM_gpib_3.Name = "DMM_gpib_3"
+        Me.DMM_gpib_3.Size = New System.Drawing.Size(42, 20)
+        Me.DMM_gpib_3.TabIndex = 16
+        Me.DMM_gpib_3.Text = "3"
+        '
+        'DMM_gpib_2
+        '
+        Me.DMM_gpib_2.Location = New System.Drawing.Point(98, 106)
+        Me.DMM_gpib_2.Name = "DMM_gpib_2"
+        Me.DMM_gpib_2.Size = New System.Drawing.Size(42, 20)
+        Me.DMM_gpib_2.TabIndex = 15
+        Me.DMM_gpib_2.Text = "2"
+        '
+        'DMM_gpib_1
+        '
+        Me.DMM_gpib_1.Location = New System.Drawing.Point(97, 81)
+        Me.DMM_gpib_1.Name = "DMM_gpib_1"
+        Me.DMM_gpib_1.Size = New System.Drawing.Size(42, 20)
+        Me.DMM_gpib_1.TabIndex = 14
+        Me.DMM_gpib_1.Text = "1"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(24, 22)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(58, 13)
+        Me.Label5.TabIndex = 13
+        Me.Label5.Text = "IP.Address"
+        '
+        'IPaddress
+        '
+        Me.IPaddress.Location = New System.Drawing.Point(97, 22)
+        Me.IPaddress.Name = "IPaddress"
+        Me.IPaddress.Size = New System.Drawing.Size(100, 20)
+        Me.IPaddress.TabIndex = 12
+        Me.IPaddress.Text = "169.254.58.10"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(24, 162)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(42, 13)
+        Me.Label4.TabIndex = 11
+        Me.Label4.Text = "DMM 4"
+        '
+        'DMM_Name_4
+        '
+        Me.DMM_Name_4.Location = New System.Drawing.Point(146, 159)
+        Me.DMM_Name_4.Name = "DMM_Name_4"
+        Me.DMM_Name_4.Size = New System.Drawing.Size(100, 20)
+        Me.DMM_Name_4.TabIndex = 10
+        Me.DMM_Name_4.Text = "Ringo"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(24, 136)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(42, 13)
+        Me.Label3.TabIndex = 8
+        Me.Label3.Text = "DMM 3"
+        '
+        'DMM_Name_3
+        '
+        Me.DMM_Name_3.Location = New System.Drawing.Point(146, 133)
+        Me.DMM_Name_3.Name = "DMM_Name_3"
+        Me.DMM_Name_3.Size = New System.Drawing.Size(100, 20)
+        Me.DMM_Name_3.TabIndex = 7
+        Me.DMM_Name_3.Text = "George"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(24, 110)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(42, 13)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "DMM 2"
+        '
+        'DMM_Name_2
+        '
+        Me.DMM_Name_2.Location = New System.Drawing.Point(146, 107)
+        Me.DMM_Name_2.Name = "DMM_Name_2"
+        Me.DMM_Name_2.Size = New System.Drawing.Size(100, 20)
+        Me.DMM_Name_2.TabIndex = 4
+        Me.DMM_Name_2.Text = "Paul"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(24, 84)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(42, 13)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "DMM 1"
+        '
+        'DMM_Name_1
+        '
+        Me.DMM_Name_1.Location = New System.Drawing.Point(146, 81)
+        Me.DMM_Name_1.Name = "DMM_Name_1"
+        Me.DMM_Name_1.Size = New System.Drawing.Size(100, 20)
+        Me.DMM_Name_1.TabIndex = 1
+        Me.DMM_Name_1.Text = "John"
+        '
+        'NameDevices
+        '
+        Me.NameDevices.Location = New System.Drawing.Point(567, 362)
+        Me.NameDevices.Name = "NameDevices"
+        Me.NameDevices.Size = New System.Drawing.Size(105, 23)
+        Me.NameDevices.TabIndex = 0
+        Me.NameDevices.Text = "NameDevices"
+        Me.NameDevices.UseVisualStyleBackColor = True
+        '
+        'TrackBar1
+        '
+        Me.TrackBar1.BackColor = System.Drawing.SystemColors.Window
+        Me.TrackBar1.Location = New System.Drawing.Point(89, 292)
+        Me.TrackBar1.Maximum = 40000
+        Me.TrackBar1.Name = "TrackBar1"
+        Me.TrackBar1.Size = New System.Drawing.Size(256, 45)
+        Me.TrackBar1.TabIndex = 38
+        Me.TrackBar1.Value = 50
+        '
+        'Form1
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(699, 435)
+        Me.Controls.Add(Me.TabControl1)
+        Me.Controls.Add(Me.NameDevices)
+        Me.Name = "Form1"
+        Me.Text = "Form1"
+        Me.TabControl1.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
+        Me.TabPage1.PerformLayout()
+        CType(Me.DutyCycle, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage4.ResumeLayout(False)
+        Me.TabPage4.PerformLayout()
+        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
+    End Sub
+
+    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents TabPage3 As TabPage
+    Friend WithEvents TabPage4 As TabPage
+    Friend WithEvents NameDevices As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents DMM_Name_1 As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents DMM_Name_4 As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents DMM_Name_3 As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents DMM_Name_2 As TextBox
+    Friend WithEvents DMM_gpib_4 As TextBox
+    Friend WithEvents DMM_gpib_3 As TextBox
+    Friend WithEvents DMM_gpib_2 As TextBox
+    Friend WithEvents DMM_gpib_1 As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents IPaddress As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents gpibAddress As TextBox
+    Friend WithEvents AudioAnalyzer_gpib As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents AudioAnalyzer_name As TextBox
+    Friend WithEvents SignalGen_gpib As TextBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents SignalGen_name As TextBox
+    Friend WithEvents PSU_gpib As TextBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents PSU_name As TextBox
+    Friend WithEvents Ocilliscope_gpib As TextBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Ocilliscope_name As TextBox
+    Friend WithEvents DMM_Value_1 As TextBox
+    Friend WithEvents READ_DMM As Button
+    Friend WithEvents Label11 As Label
+    Friend WithEvents DMM_function_1 As ComboBox
+    Friend WithEvents DMM_dbm_1 As TextBox
+    Friend WithEvents dBm_ref As TextBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents DMM_dbm_4 As TextBox
+    Friend WithEvents DMM_Value_4 As TextBox
+    Friend WithEvents Label15 As Label
+    Friend WithEvents DMM_function_4 As ComboBox
+    Friend WithEvents DMM_dbm_3 As TextBox
+    Friend WithEvents DMM_Value_3 As TextBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents DMM_function_3 As ComboBox
+    Friend WithEvents DMM_dbm_2 As TextBox
+    Friend WithEvents DMM_Value_2 As TextBox
+    Friend WithEvents Label13 As Label
+    Friend WithEvents DMM_function_2 As ComboBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Signal_Type As ComboBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Signal_Amp_unit As ComboBox
+    Friend WithEvents Sine_amp As TextBox
+    Friend WithEvents Sine_freq As TextBox
+    Friend WithEvents DutyCycle As TrackBar
+    Friend WithEvents DistortionChange As Button
+    Friend WithEvents Dist_freq As TextBox
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Dist_Amp As TextBox
+    Friend WithEvents Dist_measure_Voltage As TextBox
+    Friend WithEvents Dist_measure_DSTN As TextBox
+    Friend WithEvents Dist_measure_SINAD As TextBox
+    Friend WithEvents TrackBar1 As TrackBar
+End Class

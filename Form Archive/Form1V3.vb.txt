@@ -1,0 +1,428 @@
+﻿
+
+
+
+Public Class Form1
+
+    Public ioMgr As Ivi.Visa.Interop.ResourceManager
+
+
+    Public DMM1 As Ivi.Visa.Interop.FormattedIO488
+    Public DMM2 As Ivi.Visa.Interop.FormattedIO488
+    Public DMM3 As Ivi.Visa.Interop.FormattedIO488
+    Public DMM4 As Ivi.Visa.Interop.FormattedIO488
+
+    Public AudioAnalyzer As Ivi.Visa.Interop.FormattedIO488
+
+    Public Ocilliscope As Ivi.Visa.Interop.FormattedIO488
+
+    Public PSU As Ivi.Visa.Interop.FormattedIO488
+
+    Public SignalGen As Ivi.Visa.Interop.FormattedIO488
+
+
+
+
+
+
+    Public Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ioMgr = New Ivi.Visa.Interop.ResourceManager
+
+        DMM1 = New Ivi.Visa.Interop.FormattedIO488
+        DMM2 = New Ivi.Visa.Interop.FormattedIO488
+        DMM3 = New Ivi.Visa.Interop.FormattedIO488
+        DMM4 = New Ivi.Visa.Interop.FormattedIO488
+
+        AudioAnalyzer = New Ivi.Visa.Interop.FormattedIO488
+
+        Ocilliscope = New Ivi.Visa.Interop.FormattedIO488
+
+        PSU = New Ivi.Visa.Interop.FormattedIO488
+
+        SignalGen = New Ivi.Visa.Interop.FormattedIO488
+
+
+
+
+
+
+    End Sub
+
+    Private Sub AssignAddress()
+        DMM1.IO = ioMgr.Open(("TCPIP0::" & IPaddress.Text & "::" & gpibAddress.Text & "," & CDec(DMM_gpib_1.Text) & "::INSTR"))    ' 10 is the instr. address 
+        DMM2.IO = ioMgr.Open(("TCPIP0::" & IPaddress.Text & "::" & gpibAddress.Text & "," & CDec(DMM_gpib_2.Text) & "::INSTR"))    ' 10 is the instr. address 
+        DMM3.IO = ioMgr.Open(("TCPIP0::" & IPaddress.Text & "::" & gpibAddress.Text & "," & CDec(DMM_gpib_3.Text) & "::INSTR"))    ' 10 is the instr. address 
+        DMM4.IO = ioMgr.Open(("TCPIP0::" & IPaddress.Text & "::" & gpibAddress.Text & "," & CDec(DMM_gpib_4.Text) & "::INSTR"))    ' 10 is the instr. address 
+        AudioAnalyzer.IO = ioMgr.Open(("TCPIP0::" & IPaddress.Text & "::" & gpibAddress.Text & "," & CDec(AudioAnalyzer_gpib.Text) & "::INSTR"))    ' 10 is the instr. address 
+        Ocilliscope.IO = ioMgr.Open(("TCPIP0::" & IPaddress.Text & "::" & gpibAddress.Text & "," & CDec(Ocilliscope_gpib.Text) & "::INSTR"))    ' 10 is the instr. address 
+        PSU.IO = ioMgr.Open(("TCPIP0::" & IPaddress.Text & "::" & gpibAddress.Text & "," & CDec(PSU_gpib.Text) & "::INSTR"))    ' 10 is the instr. address 
+        SignalGen.IO = ioMgr.Open(("TCPIP0::" & IPaddress.Text & "::" & gpibAddress.Text & "," & CDec(SignalGen_gpib.Text) & "::INSTR"))    ' 10 is the instr. address 
+
+    End Sub
+    Private Sub NameDevices_Click(sender As Object, e As EventArgs) Handles NameDevices.Click
+        AssignAddress()
+        DMM1.WriteString("DISP:TEXT """ & DMM_Name_1.Text & """")
+        DMM2.WriteString("DISP:TEXT """ & DMM_Name_2.Text & """")
+        DMM3.WriteString("DISP:TEXT """ & DMM_Name_3.Text & """")
+        DMM4.WriteString("DISP:TEXT """ & DMM_Name_4.Text & """")
+
+        AudioAnalyzer.WriteString("21.0 SP")
+
+
+        Ocilliscope.WriteString("DISP:TEXT """ & Ocilliscope_name.Text & """")
+        PSU.WriteString("DISP:TEXT """ & PSU_name.Text & """")
+        SignalGen.WriteString("DISP:TEXT """ & SignalGen_name.Text & """")
+
+
+        'Set to default 
+        DMM_function_1.SelectedIndex = 0
+        DMM_function_2.SelectedIndex = 0
+        DMM_function_3.SelectedIndex = 0
+        DMM_function_4.SelectedIndex = 0
+
+        Signal_Type.SelectedIndex = 0
+        Signal_Amp_unit.SelectedIndex = 0
+    End Sub
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles READ_DMM.Click
+        DMM_Config_1()
+        DMM_Config_2()
+        DMM_Config_3()
+        DMM_Config_4()
+
+    End Sub
+
+    Public Sub DMM_Config_1()
+        ' clear the display
+        DMM1.WriteString("DISP:TEXT:CLEAR")
+
+        ' 0 V DC
+        If DMM_function_1.SelectedIndex = 0 Then
+            DMM1.WriteString("MEAS:VOLT:DC?")
+            ' 1 I DC
+        ElseIf DMM_function_1.SelectedIndex = 1 Then
+            DMM1.WriteString("MEAS:CURR:DC?")
+            '2 V AC
+        ElseIf DMM_function_1.SelectedIndex = 2 Then
+            DMM1.WriteString("MEAS:VOLT:AC?")
+
+            '3 I AC
+        ElseIf DMM_function_1.SelectedIndex = 3 Then
+
+            DMM1.WriteString("MEAS:CURR:AC?")
+            '4 R 2W
+        ElseIf DMM_function_1.SelectedIndex = 4 Then
+            DMM1.WriteString("MEAS:RES?")
+            '5 R 4W
+        ElseIf DMM_function_1.SelectedIndex = 5 Then
+            DMM1.WriteString("MEAS:FRES?")
+            '6 Diode
+        ElseIf DMM_function_1.SelectedIndex = 6 Then
+            DMM1.WriteString("MEAS:DIODe?")
+            '7 Capacitance
+        ElseIf DMM_function_1.SelectedIndex = 7 Then
+            DMM1.WriteString("MEAS:FREQuency?")
+            '8 Freq
+        ElseIf DMM_function_1.SelectedIndex = 8 Then
+            DMM1.WriteString("MEAS:FREQuency?")
+            '9 Period
+        ElseIf DMM_function_1.SelectedIndex = 9 Then
+            DMM1.WriteString("MEAS:PERiod?")
+            '10 Continuity
+        ElseIf DMM_function_1.SelectedIndex = 10 Then
+            DMM1.WriteString("MEAS:CONTinuity?")
+        End If
+
+
+        DMM_Read_1()
+
+    End Sub
+    Public Sub DMM_Config_2()
+        ' clear the display
+        DMM2.WriteString("DISP:TEXT:CLEAR")
+
+        ' 0 V DC
+        If DMM_function_2.SelectedIndex = 0 Then
+            DMM2.WriteString("MEAS:VOLT:DC?")
+            ' 1 I DC
+        ElseIf DMM_function_2.SelectedIndex = 1 Then
+            DMM2.WriteString("MEAS:CURR:DC?")
+            '2 V AC
+        ElseIf DMM_function_2.SelectedIndex = 2 Then
+            DMM2.WriteString("MEAS:VOLT:AC?")
+
+            '3 I AC
+        ElseIf DMM_function_2.SelectedIndex = 3 Then
+
+            DMM2.WriteString("MEAS:CURR:AC?")
+            '4 R 2W
+        ElseIf DMM_function_2.SelectedIndex = 4 Then
+            DMM2.WriteString("MEAS:RES?")
+            '5 R 4W
+        ElseIf DMM_function_2.SelectedIndex = 5 Then
+            DMM2.WriteString("MEAS:FRES?")
+            '6 Diode
+        ElseIf DMM_function_2.SelectedIndex = 6 Then
+            DMM2.WriteString("MEAS:DIODe?")
+            '7 Capacitance
+        ElseIf DMM_function_2.SelectedIndex = 7 Then
+            DMM2.WriteString("MEAS:FREQuency?")
+            '8 Freq
+        ElseIf DMM_function_2.SelectedIndex = 8 Then
+            DMM2.WriteString("MEAS:FREQuency?")
+            '9 Period
+        ElseIf DMM_function_2.SelectedIndex = 9 Then
+            DMM2.WriteString("MEAS:PERiod?")
+            '10 Continuity
+        ElseIf DMM_function_2.SelectedIndex = 10 Then
+            DMM2.WriteString("MEAS:CONTinuity?")
+        End If
+
+        'read the value
+        DMM_Read_2()
+    End Sub
+    Public Sub DMM_Config_3()
+        ' clear the display
+        DMM3.WriteString("DISP:TEXT:CLEAR")
+
+        ' 0 V DC
+        If DMM_function_3.SelectedIndex = 0 Then
+            DMM3.WriteString("MEAS:VOLT:DC?")
+            ' 1 I DC
+        ElseIf DMM_function_3.SelectedIndex = 1 Then
+            DMM3.WriteString("MEAS:CURR:DC?")
+            '2 V AC
+        ElseIf DMM_function_3.SelectedIndex = 2 Then
+            DMM3.WriteString("MEAS:VOLT:AC?")
+
+            '3 I AC
+        ElseIf DMM_function_3.SelectedIndex = 3 Then
+
+            DMM3.WriteString("MEAS:CURR:AC?")
+            '4 R 2W
+        ElseIf DMM_function_3.SelectedIndex = 4 Then
+            DMM3.WriteString("MEAS:RES?")
+            '5 R 4W
+        ElseIf DMM_function_3.SelectedIndex = 5 Then
+            DMM3.WriteString("MEAS:FRES?")
+            '6 Diode
+        ElseIf DMM_function_3.SelectedIndex = 6 Then
+            DMM3.WriteString("MEAS:DIODe?")
+            '7 Capacitance
+        ElseIf DMM_function_3.SelectedIndex = 7 Then
+            DMM3.WriteString("MEAS:FREQuency?")
+            '8 Freq
+        ElseIf DMM_function_3.SelectedIndex = 8 Then
+            DMM3.WriteString("MEAS:FREQuency?")
+            '9 Period
+        ElseIf DMM_function_3.SelectedIndex = 9 Then
+            DMM3.WriteString("MEAS:PERiod?")
+            '10 Continuity
+        ElseIf DMM_function_3.SelectedIndex = 10 Then
+            DMM3.WriteString("MEAS:CONTinuity?")
+        End If
+        DMM_Read_3()
+
+    End Sub
+    Public Sub DMM_Config_4()
+        ' clear the display
+        DMM4.WriteString("DISP:TEXT:CLEAR")
+
+        ' 0 V DC
+        If DMM_function_4.SelectedIndex = 0 Then
+            DMM4.WriteString("MEAS:VOLT:DC?")
+            ' 1 I DC
+        ElseIf DMM_function_4.SelectedIndex = 1 Then
+
+            DMM4.WriteString("MEAS:CURR:DC?")
+            '2 V AC
+        ElseIf DMM_function_4.SelectedIndex = 2 Then
+            DMM4.WriteString("MEAS:VOLT:AC?")
+
+            '3 I AC
+        ElseIf DMM_function_4.SelectedIndex = 3 Then
+
+            DMM4.WriteString("MEAS:CURR:AC?")
+            '4 R 2W
+        ElseIf DMM_function_4.SelectedIndex = 4 Then
+            DMM4.WriteString("MEAS:RES?")
+            '5 R 4W
+        ElseIf DMM_function_4.SelectedIndex = 5 Then
+            DMM4.WriteString("MEAS:FRES?")
+            '6 Diode
+        ElseIf DMM_function_4.SelectedIndex = 6 Then
+            DMM4.WriteString("MEAS:DIODe?")
+            '7 Capacitance
+        ElseIf DMM_function_4.SelectedIndex = 7 Then
+            DMM4.WriteString("MEAS:FREQuency?")
+            '8 Freq
+        ElseIf DMM_function_4.SelectedIndex = 8 Then
+            DMM4.WriteString("MEAS:FREQuency?")
+            '9 Period
+        ElseIf DMM_function_4.SelectedIndex = 9 Then
+            DMM4.WriteString("MEAS:PERiod?")
+            '10 Continuity
+        ElseIf DMM_function_4.SelectedIndex = 10 Then
+            DMM4.WriteString("MEAS:CONTinuity?")
+        End If
+        DMM_Read_4()
+    End Sub
+
+    Public Sub DMM_Read_1()
+        'read the value
+        DMM_Value_1.Text = DMM1.ReadNumber()
+
+        'if it's Vac calculate dBm
+        If DMM_function_1.SelectedIndex = 2 Then
+            DMM_dbm_1.Text = 10 * Math.Log10((CDbl(DMM_Value_1.Text) ^ 2) / CDbl(dBm_ref.Text) / (0.001))
+        Else
+            DMM_dbm_1.Text = ""
+        End If
+    End Sub
+    Public Sub DMM_Read_2()
+        DMM_Value_2.Text = DMM2.ReadNumber()
+
+        'if it's Vac calculate dBm
+        If DMM_function_2.SelectedIndex = 2 Then
+            DMM_dbm_2.Text = 10 * Math.Log10((CDbl(DMM_Value_2.Text) ^ 2) / CDbl(dBm_ref.Text) / (0.001))
+        Else
+            DMM_dbm_2.Text = ""
+        End If
+    End Sub
+    Public Sub DMM_Read_3()
+
+        'read the value
+        DMM_Value_3.Text = DMM3.ReadNumber()
+
+        'if it's Vac calculate dBm
+        If DMM_function_3.SelectedIndex = 2 Then
+            DMM_dbm_3.Text = 10 * Math.Log10((CDbl(DMM_Value_3.Text) ^ 2) / CDbl(dBm_ref.Text) / (0.001))
+        Else
+            DMM_dbm_3.Text = ""
+        End If
+    End Sub
+    Public Sub DMM_Read_4()
+        'read the value
+        DMM_Value_4.Text = DMM4.ReadNumber()
+
+        'if it's Vac calculate dBm
+        If DMM_function_4.SelectedIndex = 2 Then
+            DMM_dbm_4.Text = 10 * Math.Log10((CDbl(DMM_Value_4.Text) ^ 2) / CDbl(dBm_ref.Text) / (0.001))
+        Else
+            DMM_dbm_4.Text = ""
+        End If
+    End Sub
+
+    Private Sub DMM_function_1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DMM_function_1.SelectedIndexChanged
+        DMM_Config_1()
+
+    End Sub
+    Private Sub DMM_function_2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DMM_function_2.SelectedIndexChanged
+        DMM_Config_2()
+
+    End Sub
+    Private Sub DMM_function_3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DMM_function_3.SelectedIndexChanged
+        DMM_Config_3()
+
+    End Sub
+    Private Sub DMM_function_4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DMM_function_4.SelectedIndexChanged
+        DMM_Config_4()
+
+    End Sub
+
+    Private Sub Label12_Click(sender As Object, e As EventArgs) Handles Label12.Click
+
+    End Sub
+
+    Private Sub DomainUpDown1_SelectedItemChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles Button1.Click
+        config_SigGen()
+        SignalGen.WriteString("OUTPUT ON")
+    End Sub
+    Public Sub config_SigGen()
+        SignalGen.WriteString("DISPLAY:TEXT:CLEAR")
+        SignalGen.WriteString("FUNC " & Signal_Type.Text)
+        SignalGen.WriteString("FREQ " & Sine_freq.Text)
+        SignalGen.WriteString("VOLT:UNIT " & Signal_Amp_unit.Text)
+        SignalGen.WriteString("VOLT " & Sine_amp.Text)
+
+    End Sub
+
+
+
+    Private Sub Sine_amp_TextChanged(sender As Object, e As EventArgs) Handles Sine_amp.TextChanged
+
+    End Sub
+
+    Private Sub DutyCycle_Scroll(sender As Object, e As EventArgs) Handles DutyCycle.Scroll
+        If Signal_Type.Text = "SQU" Then
+            SignalGen.WriteString("FUNC:SQU:DCYC " & DutyCycle.Value)
+        ElseIf Signal_Type.Text = "RAMP" Then
+            SignalGen.WriteString("FUNC:RAMP:SYMM " & DutyCycle.Value)
+        Else
+
+
+        End If
+    End Sub
+
+    Private Sub Signal_Amp_unit_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Signal_Amp_unit.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub Signal_Type_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Signal_Type.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub Sine_freq_TextChanged(sender As Object, e As EventArgs) Handles Sine_freq.TextChanged
+
+    End Sub
+
+    Private Sub DistortionChange_Click(sender As Object, e As EventArgs) Handles DistortionChange.Click
+        AudioAnalyzer.WriteString("CL")
+
+
+        AudioAnalyzer.WriteString("FR " & Dist_freq.Text & " HZ")
+        AudioAnalyzer.WriteString("AP " & Dist_Amp.Text & " VL")
+
+        'Dist_Dist_measure_DSTN
+        AudioAnalyzer.WriteString("S3")
+
+        'hold
+        AudioAnalyzer.WriteString("T3")
+        AudioAnalyzer.WriteString("RR")
+        Dist_measure_DSTN.Text = AudioAnalyzer.ReadString()
+
+        'Dist_measure_SINAD
+        ' AudioAnalyzer.WriteString("M2")
+        ' Dist_measure_SINAD.Text = AudioAnalyzer.ReadNumber()
+
+
+        'Dist_measure_Voltage
+        '  AudioAnalyzer.WriteString("MV")
+        '   Dist_measure_Voltage.Text = AudioAnalyzer.ReadNumber()
+
+
+
+
+    End Sub
+
+    Private Sub Dist_measure_SINAD_Click(sender As Object, e As EventArgs) Handles Dist_measure_SINAD.TextChanged
+
+    End Sub
+
+    Private Sub Dist_Dist_measure_DSTN_click(sender As Object, e As EventArgs) Handles Dist_measure_DSTN.TextChanged
+
+    End Sub
+
+    Private Sub Dist_measure_Voltage_Click(sender As Object, e As EventArgs) Handles Dist_measure_Voltage.TextChanged
+
+    End Sub
+End Class
