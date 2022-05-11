@@ -263,13 +263,6 @@
     <Compile Include="APK User Controls\Time Graph\TimeGraph.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Database\databaseExplore.Designer.vb">
-      <DependentUpon>databaseExplore.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Database\databaseExplore.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Database\ExcelExtensions.vb" />
     <Compile Include="Instruments\GPIB\3235 Switcher\Relay_Driver.Designer.vb">
       <DependentUpon>Relay_Driver.vb</DependentUpon>
     </Compile>
@@ -443,9 +436,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="APK User Controls\Time Graph\TimeGraph.resx">
       <DependentUpon>TimeGraph.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Database\databaseExplore.resx">
-      <DependentUpon>databaseExplore.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Instruments\GPIB\3235 Switcher\Relay_Driver.resx">
       <DependentUpon>Relay_Driver.vb</DependentUpon>
