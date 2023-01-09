@@ -17,11 +17,11 @@ Public Class UserInterfaceShell
 
 		APK_Bench_Router.Show()
 		APK_Bench_Router.BringToFront()
-		APK_Bench_Router.Location = New Point(3512, 4)
+		'APK_Bench_Router.Location = New Point(3512, 4)
 
 		SequenceTimer.Show()
 		SequenceTimer.BringToFront()
-		SequenceTimer.Location = New Point(1959, -726)
+		'SequenceTimer.Location = New Point(1959, -726)
 
 
 		Command_List_Form.Show()
@@ -30,11 +30,16 @@ Public Class UserInterfaceShell
 
 		SoundSourceWindow.Show()
 		SoundSourceWindow.BringToFront()
-		SoundSourceWindow.Location = New Point(3500, 610)
+		'SoundSourceWindow.Location = New Point(3500, 610)
 
 		Freq_Chart.Show()
 		Freq_Chart.BringToFront()
-		Freq_Chart.Location = New Point(3570, 70)
+		'Freq_Chart.Location = New Point(3570, 70)
+
+
+		spectrum_BusinessLogic.Show()
+		spectrum_BusinessLogic.BringToFront()
+
 	End Sub
 
 	Private Sub RepositionAnnounce(sender As Object, e As EventArgs) Handles MyBase.Move

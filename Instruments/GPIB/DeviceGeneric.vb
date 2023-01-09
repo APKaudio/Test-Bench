@@ -104,6 +104,7 @@ Public Class BenchInstrumentItem
 				Address.Visa_Manager = New Ivi.Visa.Interop.ResourceManager
 				Address.SCIP = New Ivi.Visa.Interop.FormattedIO488
 				Address.SCIP.IO = Address.Visa_Manager.Open(Address.TCPIPVisaConfiguration)
+				Address.SCIP.IO.TerminationCharacter = False
 
 				Address.Visa_Manager = New Ivi.Visa.Interop.ResourceManager
 				Address.SCIP = New Ivi.Visa.Interop.FormattedIO488
@@ -172,6 +173,11 @@ Public Class BenchInstrumentItem
 				Address.Visa_Manager = New Ivi.Visa.Interop.ResourceManager
 				Address.SCIP = New Ivi.Visa.Interop.FormattedIO488
 				Address.SCIP.IO = Address.Visa_Manager.Open(Address.TCPIPVisaConfiguration)
+
+				Address.SCIP.IO.TerminationCharacter = False
+
+
+
 
 				'' use instrument specific address for Open() parameter – i.e. GPIB0::22
 				CommandList("CONNECT - " & Address.TCPIPVisaConfiguration)
@@ -259,7 +265,7 @@ Public Class BenchInstrumentItem
 			Try
 
 
-				Address.SCIP.WriteString(ThingToSay)
+				Address.SCIP.WriteString(ThingToSay, False)
 
 				Data_CSV_ADD()
 				CommandList(Name & " " & "GBIP SAY: " & Address.GPIB_Address & " : " & ThingToSay)
