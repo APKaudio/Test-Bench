@@ -486,7 +486,7 @@ Partial Class UserInterfaceShell
 		'
 		Me.TabControl4.Controls.Add(Me.TabPage8)
 		Me.TabControl4.Controls.Add(Me.TabPage9)
-		Me.TabControl4.Location = New System.Drawing.Point(2808, 736)
+		Me.TabControl4.Location = New System.Drawing.Point(2274, 707)
 		Me.TabControl4.Name = "TabControl4"
 		Me.TabControl4.SelectedIndex = 0
 		Me.TabControl4.Size = New System.Drawing.Size(384, 115)

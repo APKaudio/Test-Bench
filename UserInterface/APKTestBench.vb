@@ -195,5 +195,9 @@ Public Class UserInterfaceShell
 	Private Sub Scope_Channel_Display_3_Load(sender As Object, e As EventArgs) Handles Scope_Channel_Display_3.Load
 
 	End Sub
+
+	Private Sub PsU_Module0_Load(sender As Object, e As EventArgs) Handles PsU_Module0.Load
+
+	End Sub
 End Class
 
