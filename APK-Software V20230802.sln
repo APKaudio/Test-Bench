@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "APK-Software V20220619", "APK-Software V20220619.vbproj", "{01C152F7-7B2D-4B30-885E-E9D934A4A538}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "APK-Software V20230802", "APK-Software V20230802.vbproj", "{01C152F7-7B2D-4B30-885E-E9D934A4A538}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

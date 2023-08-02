@@ -99,7 +99,7 @@ Public Class UserInterfaceShell
 
 
 	Private Sub ButtonFindDevices_Click(sender As Object, e As EventArgs)
-		FindDevices.Main()
+		'	FindDevices.Main()
 	End Sub
 
 

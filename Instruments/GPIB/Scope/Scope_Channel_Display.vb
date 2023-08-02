@@ -461,13 +461,15 @@ Public Class Scope_Channel_Display
 	End Sub
 
 	Private Sub TextBox_SCOPE_Title_TextChanged(sender As Object, e As EventArgs) Handles TextBox_SCOPE_Title.TextChanged
-		Try
-			If DEVICE.Connected Then
-				Set_ScopeLabel(channel)
-			End If
-		Catch ex As Exception
+		'' MAJOR ERROR HERE FOR LABELING  FIX ME!!!!
 
-		End Try
+		'Try
+		'	If DEVICE.Connected Then
+		'		'		Set_ScopeLabel(channel)
+		'	End If
+		'Catch ex As Exception
+
+		'End Try
 	End Sub
 
 	Public Sub AddSplitDataToChart(channel)
