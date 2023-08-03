@@ -369,11 +369,15 @@
 
 	Private Sub PSUCLOSE() Handles Me.Disposed
 
-		Try
-			DEVICE.Say("OUTPUT OFF;DISP:STAT 0")
-		Catch ex As Exception
+		If DEVICE.Connected Then
+			Try
+				DEVICE.Say("OUTPUT OFF;DISP:STAT 0")
+			Catch ex As Exception
 
-		End Try
+			End Try
+
+		End If
+
 
 	End Sub
 

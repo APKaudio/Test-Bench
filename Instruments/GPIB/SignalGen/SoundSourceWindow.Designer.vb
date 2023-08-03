@@ -28,7 +28,7 @@ Partial Class SoundSourceWindow
 		'SoundSource1
 		'
 		Me.SoundSource1.BackColor = System.Drawing.SystemColors.ActiveCaption
-		Me.SoundSource1.Location = New System.Drawing.Point(0, 0)
+		Me.SoundSource1.Location = New System.Drawing.Point(0, 9)
 		Me.SoundSource1.Margin = New System.Windows.Forms.Padding(6)
 		Me.SoundSource1.Name = "SoundSource1"
 		Me.SoundSource1.Size = New System.Drawing.Size(340, 435)

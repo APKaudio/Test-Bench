@@ -10,12 +10,16 @@
 
 	Public Sub SetupSigGenConfig()
 
+		SigGen_amp.Text = 1
+		SigGen_Amp_unit.SelectedIndex = 0
+		SigGen_Signal_Type.SelectedIndex = 0
+
 
 		''This is My session description
 		DEVICE.Address.GPIB_Address = 20
 		DEVICE.Address.IP = "44.44.44.33"
 		DEVICE.Name = "Signal Gen"
-		DEVICE.Address.GPIB_Bus = "gpib7"
+		''DEVICE.Address.GPIB_Bus = "gpib7"
 
 
 		''SignalGen.ConnectToGPIB()
@@ -26,9 +30,7 @@
 		If DEVICE.Connected Then
 			config_SigGen()
 			'Rest The Displays
-			SigGen_amp.Text = 1
-			SigGen_Amp_unit.SelectedIndex = 0
-			SigGen_Signal_Type.SelectedIndex = 0
+
 		Else
 			'Me.Dispose()
 			Me.Visible = False
@@ -67,6 +69,7 @@
 
 		Catch ex As Exception
 			ErrorList("ERROR: SG: Update Source load")
+
 		End Try
 	End Sub
 
@@ -84,6 +87,7 @@
 
 		Catch ex As Exception
 			ErrorList("ERROR: SG: Update Function")
+
 		End Try
 	End Sub
 
@@ -92,27 +96,21 @@
 		Try
 			If DEVICE.Connected Then
 
-
-
-
-
 				CommandList("SG: Update Freq" & Freq)
 				DEVICE.Say("FREQ " & Freq)
 
-				DEVICE.Say("FREQ? ")
+				DEVICE.Say("FREQ?")
 				DEVICE.Configuration.Freq = DEVICE.Listen()
 				DEVICE.Read.Freq = DEVICE.Configuration.Freq
 
 				SigGen_FrequencyTrackBar.Value = DEVICE.Read.Freq
 				SigGen_Sine_freq.Text = 	DEVICE.Read.Freq
 
-
-
-
 			End If
 
 		Catch ex As Exception
 			ErrorList("ERROR: SG: Update Freq")
+
 		End Try
 
 
@@ -515,6 +513,7 @@
 		End Try
 	End Sub
 
+	Private Sub TableLayoutPanel3_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel3.Paint
 
-
+	End Sub
 End Class

@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{01C152F7-7B2D-4B30-885E-E9D934A4A538}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>APK_Bench_Software.UserInterfaceShell</StartupObject>
+    <StartupObject>APK_Bench_Software.SoundSourceWindow</StartupObject>
     <RootNamespace>APK_Bench_Software</RootNamespace>
     <AssemblyName>APK-Software 20230717</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -84,6 +84,7 @@
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ivi.Visa, Version=5.11.0.0, Culture=neutral, PublicKeyToken=a128c98f1d7717c1, processorArchitecture=MSIL" />
     <Reference Include="Keysight.Visa, Version=18.2.0.0, Culture=neutral, PublicKeyToken=7a01cdb2a9131f73, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />

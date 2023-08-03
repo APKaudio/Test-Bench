@@ -104,10 +104,10 @@ Public Class BenchInstrumentItem
 				Address.Visa_Manager = New Ivi.Visa.Interop.ResourceManager
 				Address.SCIP = New Ivi.Visa.Interop.FormattedIO488
 				Address.SCIP.IO = Address.Visa_Manager.Open(Address.TCPIPVisaConfiguration)
-				Address.SCIP.IO.TerminationCharacter = False
+				Address.SCIP.IO.TerminationCharacter = True
 
-				Address.Visa_Manager = New Ivi.Visa.Interop.ResourceManager
-				Address.SCIP = New Ivi.Visa.Interop.FormattedIO488
+				'Address.Visa_Manager = New Ivi.Visa.Interop.ResourceManager
+				'Address.SCIP = New Ivi.Visa.Interop.FormattedIO488
 				'' use instrument specific address for Open() parameter – i.e. GPIB0::22
 				Address.SCIP.IO = Address.Visa_Manager.Open(Address.TCPIPVisaConfiguration)
 				CommandList("CONNECT - " & Address.TCPIPVisaConfiguration)
@@ -173,11 +173,7 @@ Public Class BenchInstrumentItem
 				Address.Visa_Manager = New Ivi.Visa.Interop.ResourceManager
 				Address.SCIP = New Ivi.Visa.Interop.FormattedIO488
 				Address.SCIP.IO = Address.Visa_Manager.Open(Address.TCPIPVisaConfiguration)
-
-				Address.SCIP.IO.TerminationCharacter = False
-
-
-
+				Address.SCIP.IO.TerminationCharacter = True
 
 				'' use instrument specific address for Open() parameter – i.e. GPIB0::22
 				CommandList("CONNECT - " & Address.TCPIPVisaConfiguration)
@@ -265,7 +261,7 @@ Public Class BenchInstrumentItem
 			Try
 
 
-				Address.SCIP.WriteString(ThingToSay, False)
+				Address.SCIP.WriteString(ThingToSay, True)
 
 				Data_CSV_ADD()
 				CommandList(Name & " " & "GBIP SAY: " & Address.GPIB_Address & " : " & ThingToSay)
@@ -277,6 +273,7 @@ Public Class BenchInstrumentItem
 				End If
 
 				ThingToSay = ""
+				ThingToSayToInstrument = ""
 			Catch ex As Exception
 				ErrorList(Name & " " & System.Reflection.MethodBase.GetCurrentMethod.Name & "=" & ThingToSay)
 			End Try
@@ -611,7 +608,9 @@ Public Structure Address
 
 
 	Public Visa_Address As String
+
 	Public SCIP As Ivi.Visa.Interop.FormattedIO488
+
 	Public Visa_Manager As Ivi.Visa.Interop.ResourceManager
 
 	Dim TCPIPVisaConfiguration As String
